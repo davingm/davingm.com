@@ -1,0 +1,43 @@
+---
+title: "Using GSAP in Nuxt 4 Without SSR Errors and Memory Leaks"
+subtitle: "A few things worth understanding before your animation code starts behaving unexpectedly"
+summary: "GSAP is powerful, but wiring it into Nuxt 4 has a few traps that aren't immediately obvious. This covers how to integrate it properly so animations run clean and don't leave a mess behind the scenes."
+publishedAt: "2026-03-25"
+tag: "NuxtJS"
+---
+
+I've been using GSAP in Vue and Nuxt projects for a while. Initially it just works — animations run, things move as planned. But over time, subtle problems start appearing: scroll triggers that stop working after navigating to another page, animations running twice, the browser gradually slowing down after a few minutes of use.
+
+All of it traced back to two things: not understanding where the boundary between server-side and client-side sits in Nuxt, and never cleaning up animations that were no longer needed.
+
+## GSAP Needs the DOM — and SSR Doesn't Have One
+
+Nuxt 4 renders pages on the server by default. In a server environment, there's no `window`, no `document`, no DOM. GSAP works by directly manipulating DOM elements — which means all GSAP code must be guaranteed to run only on the client side.
+
+The most straightforward way to do this is wrapping all animation code inside `onMounted`. This hook only runs after the component has been fully rendered in the browser, so by the time GSAP executes, you're guaranteed to have access to the DOM. For heavier animation components where you want to be more explicit, Nuxt's `<ClientOnly>` wrapper works equally well.
+
+For projects that use GSAP across many pages, registering GSAP as a Nuxt plugin with a filename ending in `.client.ts` is the cleaner approach. Nuxt automatically ensures that any plugin with that suffix only loads in the browser — no risk of it executing server-side.
+
+## Cleanup Is Part of the Code, Not Optional
+
+This is the one most commonly skipped, and most commonly the source of problems. When a Vue component unmounts — say, when a user navigates to a different page — GSAP doesn't automatically know that the animations it created need to stop. ScrollTrigger instances, for example, stay active in memory even after the component that created them is long gone.
+
+The results vary: animations running twice because old and new instances are both active simultaneously, event listeners accumulating and degrading performance, or inconsistent scroll behavior between pages.
+
+The fix is to always clean up in `onUnmounted`. For ScrollTrigger, call `.kill()` on all instances you've created. A cleaner approach is using `gsap.context()` — you wrap all your animations in a single context, and at cleanup time just call `.revert()` on it. Every animation inside gets cleaned up at once without having to track them individually.
+
+## Use References, Not String Selectors
+
+In projects with many components, using string selectors like `.hero-title` to target elements can cause subtle bugs. If two different components on different pages happen to use the same class name, GSAP can target the wrong element — and this kind of bug is extremely hard to debug because it doesn't throw an error, it just causes strange behavior.
+
+The safer approach is using `useTemplateRef()` to get a direct reference to the exact DOM element you want to animate. With an explicit reference, you know precisely which element is the target regardless of what else exists on the page.
+
+## Choose GPU-Accelerated Properties
+
+One detail with an outsized impact on performance: prefer CSS properties processed by the GPU. In GSAP, `x`, `y`, `scale`, `rotation`, and `opacity` are GPU-accelerated and far more efficient than animating `top`, `left`, `width`, or `height` directly.
+
+Animating `left` from 0 to 200px forces the browser to recalculate the entire page layout on every frame — this is layout thrashing, and it can make animations feel choppy even on capable hardware. Using `x` and `y` through GSAP accomplishes the same visual result entirely within the compositor layer, without touching layout at all.
+
+---
+
+GSAP with Nuxt 4 isn't complicated — but it does require a clear understanding of SSR boundaries and Vue component lifecycle to get right. Once those two things click, the combination is genuinely enjoyable to work with.

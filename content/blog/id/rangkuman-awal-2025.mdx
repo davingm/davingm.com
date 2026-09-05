@@ -1,0 +1,45 @@
+---
+title: "Awal 2025: Mendalami Vue Sambil Merawat Proyek Laravel yang Sudah Ada"
+subtitle: "Dua pendekatan yang berbeda, dijalani bersamaan selama beberapa bulan"
+summary: "Di awal 2025 saya menjalankan dua pekerjaan teknis sekaligus: mendalami Vue.js secara serius dari dasar, dan merawat sebuah proyek Laravel yang sudah berjalan cukup lama. Ini catatan dari periode tersebut."
+publishedAt: "2026-02-18"
+tag: "Catatan"
+---
+
+Awal 2025 berlalu lebih cepat dari yang saya perkirakan. Ada dua jalur yang berjalan bersamaan selama beberapa bulan: saya sedang berusaha benar-benar memahami Vue.js dari bawah, bukan sekadar menggunakannya — dan di saat yang sama, saya masih perlu merawat sebuah sistem berbasis Laravel yang sudah berjalan sejak sebelum saya bergabung.
+
+Keduanya mengajarkan hal yang berbeda, dengan cara yang berbeda.
+
+## Vue.js: Dari Tahu Cara Pakai ke Paham Cara Kerjanya
+
+Saya mulai pakai Vue jauh sebelum 2025, tapi selama itu lebih banyak dalam mode "cukup jalan". Kalau ada sesuatu yang tidak jelas, saya cari solusinya, terapkan, dan lanjut. Pemahaman tentang apa yang sebenarnya terjadi di balik kodenya — itu yang selama ini saya lewati.
+
+Di awal tahun ini saya memutuskan untuk tidak lagi begitu. Saya mulai dari reaktivitas: bagaimana `ref` dan `reactive` sebenarnya bekerja, bukan hanya kapan harus pakai yang mana. Setelah membaca penjelasan di level yang lebih dalam — termasuk bagaimana Vue melacak dependensi secara internal — banyak hal yang sebelumnya terasa seperti "keajaiban" mulai masuk akal. Termasuk kenapa reaktivitas kadang tidak bekerja seperti yang diharapkan.
+
+`watch` dan `watchEffect` adalah dua hal lain yang selama ini saya pakai tanpa benar-benar mengerti perbedaannya. Setelah dipelajari lebih dalam, ternyata perbedaannya fundamental — bukan hanya soal sintaks, tapi soal kapan dan bagaimana keduanya melacak dependensi. Memahami ini mengubah cara saya menulis code yang reaktif.
+
+Pinia juga saya pelajari ulang di periode ini. Setelah lama dengan Vuex, beralih ke Pinia terasa seperti punya ruang bernapas — tidak ada lagi boilerplate yang terasa ritualistik, state management yang sebelumnya terasa seperti tugas tersendiri jadi jauh lebih natural.
+
+## Laravel: Merawat Kode yang Bukan Milik Saya
+
+Proyek Laravel yang saya rawat ini bukan sesuatu yang saya bangun dari awal. Ia sudah ada sejak beberapa tahun sebelumnya, ditulis dalam gaya yang berbeda dari yang biasa saya pakai sekarang — beberapa bagian masih menggunakan pola dari Laravel versi lama, ada beberapa raw SQL yang seharusnya bisa diganti dengan Eloquent yang lebih ekspresif, dan business logic yang tersebar di controller tanpa ada pemisahan yang jelas.
+
+Tantangan terbesar di proyek semacam ini bukan menulis fitur baru. Tantangannya adalah memperbaiki sesuatu tanpa merusak yang lain — di proyek yang tidak punya test coverage yang memadai, dan tidak ada dokumentasi yang bisa diandalkan.
+
+Yang saya lakukan selama beberapa bulan ini bertahap: memindahkan logika bisnis yang berulang ke Service layer, menambahkan type hint dan komentar di bagian-bagian yang akan sulit dipahami orang lain (termasuk diri saya sendiri enam bulan ke depan), dan pelan-pelan mengganti beberapa raw query ke Eloquent di tempat yang aman untuk diubah.
+
+Bukan transformasi besar. Tapi setiap perubahan kecil yang konsisten membuat codebase semakin mendekati kondisi yang bisa di-maintain dengan nyaman.
+
+## Berpindah Konteks Setiap Hari
+
+Menjalani keduanya bersamaan punya efek samping yang menarik: cara berpikir yang berbeda terus bergantian setiap harinya.
+
+Di Vue, pikiran saya selalu berputar di sekitar state dan bagaimana view merespons perubahannya. Di Laravel, pikiran saya lebih ke arah request lifecycle — data masuk, diproses, keluar. Keduanya adalah mental model yang berbeda, dan berpindah di antara keduanya beberapa kali sehari awalnya terasa melelahkan.
+
+Tapi lama-kelamaan ada manfaat yang tidak saya antisipasi: saat bekerja di frontend, saya jadi lebih sadar tentang keterbatasan dan kebutuhan yang wajar di sisi backend. Saat bekerja di backend, saya jadi lebih jelas tentang struktur data seperti apa yang akan paling mudah dikonsumsi oleh frontend. Keduanya saling memberi konteks.
+
+---
+
+Awal 2025 tidak ringan, tapi hasilnya sepadan. Pemahaman teknis saya di kedua area tumbuh dengan cara yang terasa solid — bukan karena belajar hal baru, tapi karena akhirnya memahami dengan benar hal-hal yang selama ini saya kira sudah saya mengerti.
+
+Ke depannya, saya ingin mengeksplorasi Inertia.js sebagai jembatan antara Vue dan Laravel. Kalau ada yang pernah mencobanya, saya tertarik mendengar pengalamannya.

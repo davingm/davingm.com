@@ -1,0 +1,46 @@
+---
+title: "Nuxt.js Mengubah Cara Saya Membangun Web — dan Saya Tidak Menyangka Akan Secepat Ini"
+subtitle: "Dari ragu-ragu pakai Vue sampai akhirnya membangun tiga platform dalam setahun"
+summary: "Saya pernah meremehkan Vue.js. Saya juga pernah skeptis dengan Nuxt. Tapi dua tahun kemudian, keduanya menjadi tool utama saya — dan ini bukan soal hype, tapi soal pengalaman nyata membangun sesuatu yang berjalan."
+image: "/images/blog/amazing.png"
+publishedAt: "2025-04-23"
+tag: "NuxtJS"
+---
+
+Saya mulai serius di frontend dengan React dan Next.js. Waktu itu saya pikir ekosistem itulah yang paling matang, paling banyak resource-nya, dan paling "industri". Vue terasa seperti pilihan kedua — library yang direkomendasikan untuk pemula karena kurva belajarnya lebih landai, tapi bukan yang dipakai "proyek serius".
+
+Pandangan itu mulai berubah saat saya terpaksa mencoba Vue di sebuah proyek, dan tidak berubah lagi setelah saya menemukan Nuxt.
+
+## Kenapa Saya Pernah Salah Tentang Vue
+
+Waktu pertama kali saya lihat kode Vue, reaksi pertama saya adalah "ini mirip React tapi sintaksnya berbeda". Dalam artian yang dangkal, itu benar. Tapi yang saya tidak perhatikan adalah perbedaan filosofinya.
+
+Vue dirancang dengan opini yang kuat tentang bagaimana komponen seharusnya ditulis — dan opini itu, bagi sebagian besar kasus, ternyata keputusan yang baik. Single File Component mengumpulkan template, logika, dan style dalam satu file dengan cara yang terasa alami daripada arbiter. Composition API yang diperkenalkan di Vue 3 membuat kode yang kompleks jauh lebih mudah diorganisir. Dan dokumentasinya — yang sebagian besar ditulis oleh komunitas — punya kualitas penjelasan yang jarang saya temukan di tempat lain.
+
+Kurva belajarnya memang lebih landai dari React. Tapi bukan karena Vue lebih sederhana — melainkan karena hal-hal yang kompleks disembunyikan dengan lebih rapi sampai Anda membutuhkannya.
+
+## Nuxt Menyelesaikan Masalah yang Saya Tidak Tahu Sedang Saya Miliki
+
+Saya mulai pakai Nuxt dengan ekspektasi yang rendah. Saya pikir ini cuma Vue plus routing otomatis, mungkin sedikit SSR. Ternyata jauh dari itu.
+
+Yang pertama kali membuat saya benar-benar terkesan adalah hybrid rendering. Di satu proyek yang sama, saya bisa menentukan bahwa halaman blog menggunakan Static Site Generation agar loading-nya cepat, halaman dashboard menggunakan SPA agar tidak ada overhead server, dan halaman produk menggunakan Server Side Rendering untuk kepentingan SEO. Semua itu diatur per-route, dengan konfigurasi yang minimal. Di Next.js, setup yang sama perlu lebih banyak keputusan eksplisit yang tersebar di berbagai tempat.
+
+Auto-import adalah fitur yang kelihatan kecil sampai Anda sadar berapa banyak waktu yang dihemat. Tidak ada lagi baris-baris import di bagian atas setiap file. Komponen yang dibuat di folder `components/`, composable di `composables/`, utility di `utils/` — semuanya langsung bisa dipakai tanpa deklarasi. Dan yang menarik, Nuxt cukup cerdas untuk hanya memuat apa yang benar-benar digunakan, sehingga ini tidak menjadi beban performa.
+
+Routing otomatis mengikuti struktur folder `pages/` terasa seperti konvensi yang seharusnya sudah ada dari dulu. Tidak perlu file router terpisah, tidak perlu mendaftarkan route secara manual — cukup buat file dengan nama yang tepat, dan path sudah tersedia.
+
+## Tiga Platform dalam Setahun
+
+Ini bukan klaim yang dibuat-buat. Dalam satu tahun terakhir, saya berhasil membangun dan meluncurkan tiga platform berbasis Nuxt yang semuanya sudah berjalan di production: platform jurnalistik di jurnalistik.nlfts.dev, platform komunitas di nlfts.dev, dan platform developer di developer.nlfts.dev.
+
+Kecepatan itu bukan karena saya tiba-tiba menjadi programmer yang lebih baik. Tapi karena saya tidak lagi menghabiskan waktu untuk keputusan-keputusan boilerplate yang seharusnya tidak perlu dipikirkan ulang setiap proyek baru.
+
+## Komunitasnya Berbeda
+
+Satu hal yang sering diremehkan dari framework adalah kualitas komunitasnya. Di sini Nuxt punya keunggulan yang tidak kecil. Komunitas Nuxt ramah, responsif, dan — yang paling saya hargai — tidak terlalu formal.
+
+Saya pernah menemukan typo di dokumentasi, membuat pull request untuk memperbaikinya, dan dalam hitungan jam PR tersebut sudah di-merge. Bukan karena kontribusi saya luar biasa, tapi karena komunitas memang terbuka terhadap perbaikan sekecil apapun. Pengalaman seperti itu mengubah cara saya memandang kontribusi open source.
+
+---
+
+Kalau Anda pernah ragu mencoba Vue karena merasa ekosistemnya belum cukup matang, saya di sini untuk bilang bahwa keraguan itu — setidaknya dari pengalaman saya — tidak lagi berdasar. Nuxt sudah di titik yang sangat solid, dan komunitas di belakangnya terus tumbuh.

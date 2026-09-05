@@ -1,0 +1,41 @@
+---
+title: "Berhenti Pakai Prettier Bersama ESLint untuk Formatting"
+subtitle: "Ada cara yang lebih bersih, dan saya sudah berpindah sejak setahun lalu"
+summary: "Menggabungkan Prettier dan ESLint dalam satu workflow itu mungkin, tapi hasilnya sering lebih merepotkan dari yang seharusnya. Ini pengalaman saya dan kenapa saya akhirnya memilih ESLint Stylistic dan Biome sebagai gantinya."
+publishedAt: "2026-03-20"
+tag: "Engineering"
+---
+
+Selama bertahun-tahun, kombinasi ESLint dan Prettier sudah menjadi semacam standar tidak tertulis di banyak proyek JavaScript. ESLint untuk mengawasi logika kode, Prettier untuk memastikan tampilannya konsisten. Keduanya punya peran yang jelas, dan sekilas kelihatan seperti pasangan yang sempurna.
+
+Tapi setelah menggunakannya di beberapa proyek dengan skala berbeda, saya mulai melihat bahwa kenyataannya tidak sesederhana itu.
+
+## Konflik yang Tidak Terlihat Sampai Muncul
+
+Masalah pertama yang saya hadapi adalah konflik aturan. ESLint punya aturan tentang bagaimana kode seharusnya terlihat — misalnya soal penggunaan tanda kutip tunggal atau ganda, panjang maksimum baris, atau keberadaan trailing comma. Prettier juga punya pandangannya sendiri tentang hal-hal yang sama.
+
+Saat keduanya aktif bersamaan, mereka bisa saling bertentangan. Anda simpan file, Prettier memformat ulang dengan caranya, lalu ESLint langsung menandainya sebagai pelanggaran. Siklus ini bisa terjadi dalam hitungan detik, dan debuggingnya membingungkan karena error yang muncul dan hilang sendiri tanpa alasan yang jelas.
+
+Ada `eslint-config-prettier` yang dibuat untuk menyelesaikan masalah ini — caranya dengan menonaktifkan semua aturan ESLint yang bisa berkonflik dengan Prettier. Tapi ini hanya memindahkan kompleksitasnya, bukan menghilangkannya. Anda sekarang punya tiga layer yang perlu dipahami: ESLint, Prettier, dan konfigurasi yang mengatur hubungan di antara keduanya.
+
+## Soal Kecepatan di Proyek Besar
+
+Di proyek kecil, perbedaan performa tidak terlalu terasa. Tapi saat codebase mulai tumbuh — ratusan file, mungkin lebih dari seribu — menjalankan dua tool berbeda untuk memproses file yang sama mulai terasa. Waktu linting di CI pipeline bisa memanjang secara signifikan, dan developer experience saat save file pun terpengaruh.
+
+Ini bukan masalah yang tidak bisa ditoleransi, tapi cukup mengganggu untuk membuat saya mulai mencari alternatif.
+
+## ESLint Stylistic: Satu Tool, Satu Konfigurasi
+
+ESLint Stylistic adalah plugin resmi dari tim ESLint yang mengambil alih tanggung jawab formatting yang sebelumnya sering didelegasikan ke Prettier. Dengan ini, Anda bisa mengonfigurasi semua aturan linting — logika maupun gaya penulisan — di satu tempat, dalam satu konfigurasi yang sama.
+
+Hasilnya jauh lebih bersih. Tidak ada lagi dua file konfigurasi yang saling berinteraksi, tidak ada lagi plugin tambahan untuk menjembatani keduanya. Saya sudah menggunakan ini di beberapa proyek Vue dan hasilnya konsisten dan mudah diprediksi.
+
+## Biome: Kalau Mau Lebih Jauh
+
+Biome adalah tool yang ditulis dalam Rust dan dirancang untuk menggantikan ESLint dan Prettier sekaligus. Kecepatan eksekusinya sangat mencolok — bahkan di proyek besar, prosesnya terasa hampir instan. Konfigurasinya juga jauh lebih sederhana: satu file `biome.json` yang mengatur semuanya.
+
+Satu-satunya catatan adalah ekosistemnya belum selengkap ESLint. Plugin-plugin khusus yang mungkin Anda andalkan belum tentu tersedia di Biome. Jadi kalau proyek Anda bergantung pada plugin ESLint tertentu, evaluasilah dulu sebelum berpindah sepenuhnya.
+
+---
+
+Untuk proyek baru, rekomendasi saya jelas: mulai dengan ESLint Stylistic saja tanpa Prettier, atau langsung coba Biome jika Anda tidak butuh plugin ESLint yang spesifik. Untuk proyek yang sudah berjalan, migrasinya perlu sedikit usaha tapi hasilnya sepadan — terutama dari sisi konfigurasi yang lebih mudah dipahami oleh seluruh tim.

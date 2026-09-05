@@ -1,0 +1,43 @@
+---
+title: "Menggunakan GSAP di Nuxt 4 Tanpa Masalah SSR dan Memory Leak"
+subtitle: "Beberapa hal yang perlu dipahami sebelum kode animasi Anda mulai berperilaku aneh"
+summary: "GSAP sangat powerful, tapi memasangnya di Nuxt 4 punya beberapa jebakan yang tidak langsung terlihat. Artikel ini membahas cara yang benar untuk mengintegrasikannya agar animasi berjalan mulus dan tidak meninggalkan mess di balik layar."
+publishedAt: "2026-03-25"
+tag: "NuxtJS"
+---
+
+Saya sudah cukup lama pakai GSAP di proyek Vue dan Nuxt. Di awal memang langsung jalan — animasi berjalan, tampilan bergerak sesuai rencana. Tapi seiring waktu, mulai muncul masalah yang tidak terduga: scroll trigger yang tidak berfungsi setelah navigasi ke halaman lain, animasi yang berjalan dobel, bahkan browser yang semakin lambat setelah dipakai beberapa menit.
+
+Semuanya bermuara pada satu hal: saya tidak memahami dengan benar di mana batas antara server-side dan client-side di Nuxt, dan saya tidak pernah membersihkan animasi yang sudah tidak dipakai.
+
+## GSAP Butuh DOM, dan SSR Tidak Punya DOM
+
+Nuxt 4 merender halaman di server secara default. Di lingkungan server, tidak ada `window`, tidak ada `document`, tidak ada DOM. GSAP bekerja dengan memanipulasi elemen DOM secara langsung — artinya, semua kode GSAP harus dipastikan hanya berjalan di sisi klien.
+
+Cara paling straightforward untuk melakukan ini adalah membungkus semua kode animasi di dalam `onMounted`. Hook ini hanya berjalan setelah komponen benar-benar dirender di browser, sehingga Anda terjamin sudah punya akses ke DOM saat GSAP dijalankan. Kalau Anda punya komponen yang berat animasinya dan ingin lebih eksplisit, `<ClientOnly>` dari Nuxt juga bisa dipakai sebagai wrapper.
+
+Untuk proyek yang menggunakan GSAP di banyak halaman, saya sarankan mendaftarkan GSAP sebagai plugin Nuxt dengan nama file yang diakhiri `.client.ts`. Nuxt secara otomatis akan memastikan plugin dengan suffix tersebut hanya dimuat di browser — tidak ada risiko dieksekusi di server.
+
+## Cleanup adalah Bagian dari Kode, Bukan Opsional
+
+Ini yang paling sering dilewati, dan paling sering menjadi sumber masalah. Saat komponen Vue di-unmount — misalnya saat pengguna berpindah halaman — GSAP tidak secara otomatis tahu bahwa animasi yang sudah dibuat perlu dihentikan. Instance ScrollTrigger, misalnya, akan tetap aktif di memori meski komponen yang membuatnya sudah lama tidak ada.
+
+Hasilnya bisa bermacam-macam: animasi berjalan dobel karena instance lama dan baru aktif bersamaan, event listener yang menumpuk dan memperlambat performa, atau perilaku scroll yang tidak konsisten antar halaman.
+
+Solusinya adalah selalu membersihkan animasi di `onUnmounted`. Untuk ScrollTrigger, pangggil `.kill()` pada semua instance yang dibuat. Cara yang lebih rapi adalah menggunakan `gsap.context()` — Anda bungkus semua animasi dalam satu context, lalu saat cleanup cukup panggil `.revert()` pada context tersebut. Semua animasi di dalamnya akan dibersihkan sekaligus tanpa harus melacak satu per satu.
+
+## Gunakan Referensi, Bukan String Selector
+
+Di proyek dengan banyak komponen, menggunakan string selector seperti `.hero-title` untuk menarget elemen bisa berbahaya. Kalau ada dua komponen di halaman yang berbeda menggunakan class name yang sama, GSAP bisa menarget elemen yang salah — dan ini jenis bug yang sangat susah di-debug karena tidak menghasilkan error, hanya perilaku yang aneh.
+
+Cara yang lebih aman adalah menggunakan `useTemplateRef()` untuk mendapatkan referensi langsung ke elemen DOM yang ingin dianimasikan. Dengan referensi yang eksplisit, Anda tahu persis elemen mana yang menjadi target animasi, terlepas dari berapa banyak komponen lain yang ada di halaman.
+
+## Pilih Properti yang Dioptimalkan GPU
+
+Satu hal kecil tapi berdampak besar pada performa: pilih properti CSS yang diproses oleh GPU, bukan CPU. `transform` (termasuk `x`, `y`, `scale`, `rotation` di GSAP) dan `opacity` diakselerasi oleh GPU dan jauh lebih efisien dibanding menganimasikan `top`, `left`, `width`, atau `height` secara langsung.
+
+Menganimasikan `left` dari 0 ke 200px memaksa browser untuk menghitung ulang layout seluruh halaman di setiap frame — ini yang disebut layout thrashing, dan efeknya bisa membuat animasi terasa patah-patah meski di perangkat yang cukup kencang. Dengan pakai `x` dan `y` dari GSAP, perpindahan yang sama berjalan sepenuhnya di layer komposit tanpa menyentuh layout.
+
+---
+
+GSAP di Nuxt 4 bukan sesuatu yang rumit — tapi butuh sedikit pemahaman tentang cara kerja SSR dan lifecycle komponen Vue agar hasilnya benar-benar bersih. Begitu keduanya dipahami, menggabungkan keduanya justru sangat menyenangkan.

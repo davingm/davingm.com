@@ -1,0 +1,53 @@
+---
+title: "15 VS Code Extensions I Actually Use Every Day as a Frontend Developer"
+subtitle: "Not a generic list — these are what's actually installed in my editor"
+summary: "The VS Code extension ecosystem is massive. Out of everything I've tried over three years, these 15 are the ones I've uninstalled, missed, and reinstalled — which is how I know they're worth it."
+publishedAt: "2026-03-12"
+tag: "Tools"
+---
+
+I've been using VS Code for about three years now. Early on, I installed everything that showed up in listicles online — and after a few months I realized most of it was collecting digital dust. Some of it was actively slowing down my editor.
+
+Every extension on this list has survived a real test: I used it, removed it at some point, and put it back because I genuinely missed it. If it's still here after a year, it earned its place.
+
+## For Code Quality
+
+**ESLint** is the first extension I install on any new setup. Not because it's mandatory, but because hunting for bugs in a long file is far more painful than seeing a red underline while typing. ESLint reads your project's `.eslintrc` and reacts immediately — no waiting for CI to tell you something's wrong.
+
+**Error Lens** pairs naturally with ESLint. The difference it makes is subtle but significant: instead of burying error messages in the panel at the bottom that you have to manually open, it displays the message inline at the end of the problematic line. You don't have to take your eyes off the code to know what's wrong.
+
+**SonarLint** operates at a deeper layer than ESLint. It's not just checking style — it's looking for potential bugs and security vulnerabilities that normal linting misses. I've had it catch a potential null dereference that slipped past ESLint entirely, before it reached production.
+
+## For Day-to-Day Efficiency
+
+**Auto Rename Tag** sounds like a small thing. I thought so too, until I spent a week without it due to a version conflict. When you change an opening HTML or JSX tag, the closing tag updates automatically. The time saved from not having to scroll down every time you rename a tag is more real than it sounds.
+
+**Path Intellisense** saves me from the ritual of counting how many `../` it takes to get to the right folder. It autocompletes file paths as you type and understands your project's directory structure.
+
+**Import Cost** shows the bundle size of every package you import, right next to the import statement. It changed how I think about choosing dependencies — instead of installing something and asking about its size later, I can see immediately whether a library is reasonably sized or not.
+
+**Turbo Console Log** automates writing informative `console.log` statements. Select a variable, hit a shortcut, and it generates a formatted log complete with the variable name and surrounding context. Genuinely useful during quick debugging sessions.
+
+**GitLens** surfaces Git history directly in the editor. Every line of code shows who wrote it, when, and in what commit — without having to open a terminal or GitHub. It's especially useful when working on older codebases where you need context behind decisions that aren't immediately obvious.
+
+## For the Frameworks I Use
+
+**Vue - Official** is non-negotiable for anyone working with Vue or Nuxt. Maintained by the Vue team directly, it provides syntax highlighting, type checking, and IntelliSense for Single File Components. Writing Vue without it feels noticeably different.
+
+**Tailwind CSS IntelliSense** becomes invaluable on Tailwind projects. Class name autocomplete, color preview on hover, and validation that the class you're writing actually exists — all included. Before using this, I regularly mistyped class names and only found out when checking the browser.
+
+## For Visual Clarity
+
+**Indent Rainbow** colors each level of indentation differently. This is particularly helpful with deeply nested HTML templates or components with many layers. Your eye can immediately tell what level you're at without counting spaces.
+
+**Color Highlight** shows a color preview inline next to hex, rgb, or hsl values in your CSS. No more switching to the browser just to check whether a color you wrote looks right.
+
+**Peacock** is often overlooked but very practical if you regularly have multiple VS Code windows open at once. You can assign different accent colors to different projects, making it easy to distinguish at a glance which window is the frontend, which is the backend, or which belongs to which client.
+
+## One That Stands Apart
+
+**REST Client** lets you write and send HTTP requests directly from a `.http` file inside VS Code — no need to open Postman or Insomnia. What makes it particularly useful is that your requests can be committed to Git alongside your code, so the whole team shares the same collection of requests without needing to sync an external tool.
+
+---
+
+One important note: not all of these need to be installed at once. Every extension adds a small load to the editor, and too many will noticeably slow VS Code down on large projects. Install what you actually need for your current stack, and audit occasionally whether you're still using them.

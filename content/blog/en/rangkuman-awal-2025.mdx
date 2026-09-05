@@ -1,0 +1,45 @@
+---
+title: "Early 2025: Going Deeper Into Vue While Maintaining an Existing Laravel Project"
+subtitle: "Two different approaches, running in parallel for several months"
+summary: "In early 2025 I was running two technical tracks simultaneously: seriously deepening my understanding of Vue.js from the ground up, and maintaining a Laravel project that had been running for some time. Notes from that period."
+publishedAt: "2026-02-18"
+tag: "Journal"
+---
+
+Early 2025 moved faster than I expected. Two tracks were running at the same time for several months: I was trying to genuinely understand Vue.js from the ground up — not just use it — while simultaneously maintaining a Laravel system that had existed before I joined.
+
+Each one taught me different things, in different ways.
+
+## Vue.js: From Knowing How to Use It, to Understanding What It's Doing
+
+I'd been using Vue for a while before 2025, but mostly in "make it work" mode. When something wasn't clear, I'd find a solution, apply it, and move on. What was actually happening beneath the code — that's what I'd consistently skipped.
+
+This year I decided to stop doing that. I started with reactivity: how `ref` and `reactive` actually work, not just when to use which. After reading explanations at a deeper level — including how Vue tracks dependencies internally — a lot of things that previously felt like "magic" started making sense. Including why reactivity sometimes fails in ways that aren't immediately obvious.
+
+`watch` and `watchEffect` were two other things I'd been using without truly understanding the difference. After studying them more carefully, the distinction turned out to be fundamental — not just a syntax choice, but about when and how each tracks dependencies. Understanding this changed how I write reactive code.
+
+I also revisited Pinia seriously during this period. Coming from Vuex, switching to Pinia felt like gaining room to breathe. State management that previously felt like a separate chore became far more natural.
+
+## Laravel: Maintaining Code That Wasn't Mine
+
+The Laravel project I was maintaining wasn't something I'd built from scratch. It had been around for several years before I came to it — written in a style different from what I'd use now, some parts still using older Laravel patterns, business logic scattered across controllers without clear separation.
+
+The hardest part of a project like this isn't building new features. It's improving things without breaking what's already there — in a project without adequate test coverage and without documentation you can rely on.
+
+What I worked on over several months was incremental: moving repeated business logic into a Service layer, adding type hints and comments to parts that would be hard to understand later (including for future me), and gradually converting some raw queries to Eloquent in areas safe enough to touch.
+
+Not dramatic changes. But each consistent small improvement pushes the codebase closer to something that can be maintained comfortably.
+
+## Switching Context Every Day
+
+Running both of these in parallel had an interesting side effect: very different mental models competing for attention throughout each day.
+
+In Vue, my thinking constantly circled around state and how the view responds to changes in it. In Laravel, I was more focused on request lifecycle — data comes in, gets processed, goes out. These are genuinely different modes of thinking, and switching between them multiple times a day was tiring at first.
+
+But there was an unexpected benefit I didn't anticipate: when working on the frontend, I became more aware of reasonable constraints and limitations on the backend side. When working on the backend, I had a clearer picture of what data structure the frontend would actually find useful. Each side gave context to the other.
+
+---
+
+Early 2025 wasn't easy, but the results felt solid. My technical understanding in both areas grew in a way that felt grounded — not from learning new things, but from finally understanding properly the things I thought I already knew.
+
+Going forward, I want to explore Inertia.js as a bridge between Vue and Laravel. If anyone has experience with it, I'm genuinely curious to hear how it went.

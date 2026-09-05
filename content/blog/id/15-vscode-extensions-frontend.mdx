@@ -1,0 +1,53 @@
+---
+title: "15 Ekstensi VS Code yang Saya Pakai Setiap Hari sebagai Frontend Developer"
+subtitle: "Bukan daftar generik — ini yang benar-benar ada di editor saya"
+summary: "Ekosistem ekstensi VS Code sangat luas. Dari belasan yang pernah saya coba, ini 15 yang benar-benar mengubah cara saya bekerja, bukan sekadar daftar rekomendasi biasa."
+publishedAt: "2026-03-12"
+tag: "Tools"
+---
+
+Saya sudah pakai VS Code selama kurang lebih tiga tahun. Di awal, saya install semua ekstensi yang muncul di listicle internet — dan setelah beberapa bulan, saya sadar bahwa sebagian besar dari itu tidak pernah benar-benar saya sentuh. Beberapa bahkan memperlambat editor secara signifikan.
+
+Daftar ini berbeda. Setiap ekstensi di sini sudah melewati proses saya pakai, saya copot, lalu saya pasang lagi karena ternyata memang butuh. Kalau saya masih pakai setelah setahun, artinya itu layak masuk daftar.
+
+## Untuk Kualitas Kode
+
+**ESLint** adalah ekstensi pertama yang saya pasang di setup manapun. Bukan karena wajib, tapi karena mencari bug di baris kode yang sudah panjang jauh lebih menyakitkan daripada melihat garis merah yang muncul saat sedang mengetik. ESLint membaca konfigurasi `.eslintrc` di proyek Anda dan langsung bereaksi — tidak perlu menunggu proses build atau CI untuk tahu ada yang salah.
+
+**Error Lens** adalah pasangan alami ESLint. Yang membedakannya: alih-alih menyembunyikan pesan error di panel bawah yang harus Anda buka secara manual, ekstensi ini menampilkan pesan error langsung di akhir baris yang bermasalah. Kedengarannya sepele, tapi percayalah — setelah terbiasa, Anda tidak akan mau kembali ke cara lama.
+
+**SonarLint** bekerja di lapisan yang lebih dalam dari ESLint. Ia tidak hanya memeriksa gaya penulisan kode, tapi juga mencari potensi bug dan celah keamanan yang bisa lolos dari linting biasa. Saya pernah menemukan sebuah kemungkinan null pointer dereference yang tidak tertangkap oleh ESLint, dan SonarLint-lah yang menemukannya sebelum sampai ke production.
+
+## Untuk Efisiensi Sehari-hari
+
+**Auto Rename Tag** terdengar seperti ekstensi kecil yang tidak penting. Saya pikir begitu juga, sampai saya bekerja tanpanya selama seminggu karena ada konflik versi. Saat Anda mengubah tag pembuka HTML atau JSX, tag penutupnya ikut berubah secara otomatis. Sesederhana itu — tapi waktu yang tersimpan dari tidak perlu scroll ke bawah setiap kali ingin ganti nama tag itu nyata.
+
+**Path Intellisense** menyelamatkan saya dari ritual menghitung berapa banyak `../` yang perlu ditulis untuk naik ke folder yang tepat. Ekstensi ini melengkapi path file secara otomatis saat Anda mengetik, dan ia tahu struktur folder proyek Anda.
+
+**Import Cost** menampilkan ukuran bundle dari setiap package yang Anda import, langsung di samping baris import tersebut. Ini mengubah cara saya memilih dependency. Daripada install dulu baru tanya-tanya soal ukurannya nanti, sekarang saya bisa langsung tahu apakah library yang saya mau pakai beratnya wajar atau tidak.
+
+**Turbo Console Log** mengotomatiskan penulisan `console.log` yang informatif. Pilih variabel, tekan shortcut, dan ekstensi akan menghasilkan log yang sudah diformat lengkap dengan nama variabel dan konteksnya. Ini menghemat banyak waktu saat debugging cepat.
+
+**GitLens** mengubah cara saya memahami sejarah kode. Setiap baris kode bisa langsung saya lihat siapa yang menulisnya, kapan, dan dalam commit apa — tanpa harus buka terminal atau GitHub. Sangat berguna saat mengerjakan codebase yang sudah lama dan ingin tahu konteks di balik keputusan-keputusan aneh yang ditemukan.
+
+## Untuk Framework yang Saya Pakai
+
+**Vue - Official** adalah ekstensi wajib untuk siapa pun yang menggunakan Vue atau Nuxt. Ia dikelola langsung oleh tim Vue, menyediakan syntax highlighting, type checking, dan IntelliSense untuk Single File Components. Tanpa ini, pengalaman menulis Vue di VS Code terasa sangat berbeda.
+
+**Tailwind CSS IntelliSense** menjadi sangat berharga di proyek yang menggunakan Tailwind. Autocomplete nama class, preview warna saat hover, dan validasi apakah class yang Anda tulis benar-benar ada — semuanya tersedia. Sebelum pakai ini, saya sering salah tulis nama class dan baru sadar setelah cek di browser.
+
+## Untuk Tampilan yang Lebih Jelas
+
+**Indent Rainbow** mewarnai setiap level indentasi dengan warna yang berbeda. Ini sangat membantu saat bekerja dengan template HTML yang dalam atau komponen dengan banyak nested element. Mata Anda bisa langsung tahu ada di level mana tanpa harus menghitung spasi.
+
+**Color Highlight** menampilkan preview warna langsung di samping nilai hex, rgb, atau hsl di kode CSS Anda. Tidak perlu bolak-balik ke browser hanya untuk mengecek apakah warna yang ditulis sudah benar.
+
+**Peacock** adalah ekstensi yang sering diabaikan tapi sangat praktis kalau Anda terbiasa membuka banyak window VS Code sekaligus. Anda bisa memberi warna berbeda untuk setiap proyek, sehingga mudah membedakan mana yang frontend, mana yang backend, mana yang proyek klien A, mana yang klien B.
+
+## Yang Satu Ini Berbeda
+
+**REST Client** memungkinkan Anda menulis dan mengirim HTTP request langsung dari file `.http` di dalam VS Code. Tidak perlu buka Postman atau Insomnia. Yang membuat ini spesial adalah request yang Anda tulis bisa disimpan ke Git bersama kode, sehingga seluruh tim punya akses ke koleksi request yang sama tanpa perlu sinkronisasi tool external.
+
+---
+
+Satu catatan penting: tidak semua ekstensi ini perlu dipasang sekaligus. Setiap ekstensi menambah sedikit beban ke editor, dan kalau terlalu banyak, VS Code bisa terasa lambat, terutama di proyek besar. Pasang yang memang Anda butuhkan berdasarkan stack yang sedang digunakan, dan evaluasi secara berkala apakah masih dipakai atau tidak.

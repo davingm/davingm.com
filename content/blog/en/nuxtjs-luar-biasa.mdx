@@ -1,0 +1,46 @@
+---
+title: "How Nuxt.js Changed the Way I Build for the Web — Faster Than I Expected"
+subtitle: "From being skeptical about Vue to shipping three platforms in a year"
+summary: "I once dismissed Vue.js. I was skeptical about Nuxt too. Two years later, both are my primary tools — not because of the hype, but because of what I've actually built and shipped with them."
+image: "/images/blog/amazing.png"
+publishedAt: "2025-04-23"
+tag: "NuxtJS"
+---
+
+I came into frontend development through React and Next.js. At the time I believed that was the most mature ecosystem, had the most resources, and was what "serious projects" used. Vue felt like a second option — something recommended for beginners because it was easier to pick up, but not what you'd use if you were building anything that actually mattered.
+
+That view started changing when I was pushed to try Vue on a project, and never reversed after I found Nuxt.
+
+## Why I Was Wrong About Vue
+
+The first time I looked at Vue code, my immediate reaction was "this is like React but different syntax." In a shallow sense, that was true. What I missed was the difference in philosophy.
+
+Vue is designed with strong opinions about how components should be written — and those opinions, for the vast majority of cases, turn out to be good decisions. Single File Components bring template, logic, and style together in one file in a way that feels natural rather than arbitrary. The Composition API introduced in Vue 3 makes organizing complex code significantly cleaner. And the documentation — much of it written by the community — has a quality of explanation I rarely find elsewhere.
+
+The learning curve is gentler than React's. But not because Vue is simpler — because the things that are complex are hidden behind reasonable defaults until you actually need them.
+
+## Nuxt Solved Problems I Didn't Know I Had
+
+I came to Nuxt with low expectations. I figured it was just Vue with automatic routing and maybe some SSR on top. It turned out to be quite a bit more.
+
+What first genuinely impressed me was hybrid rendering. Within a single project, I can specify that a blog page uses Static Site Generation for fast load times, a dashboard page uses SPA mode to avoid unnecessary server overhead, and product pages use Server Side Rendering for SEO. All of this is configured per-route with minimal setup. Getting the same setup in Next.js requires more explicit decisions spread across more places.
+
+Auto-imports look like a small convenience until you realize how much time they actually save. No more rows of import statements at the top of every file. Components placed in the `components/` folder, composables in `composables/`, utilities in `utils/` — all immediately available anywhere without declaration. And Nuxt is smart enough to only load what's actually being used, so this doesn't become a performance burden.
+
+File-based routing through the `pages/` directory feels like a convention that should have been the standard from the beginning. No separate router file, no manual route registration — create a file with the right name, and the path exists.
+
+## Three Platforms in a Year
+
+This isn't an exaggeration. Over the last year, I built and launched three Nuxt-based platforms that are all running in production: a journalism platform at jurnalistik.nlfts.dev, a community platform at nlfts.dev, and a developer platform at developer.nlfts.dev.
+
+That pace wasn't because I suddenly became a better programmer. It was because I stopped spending time on boilerplate decisions that shouldn't need to be made fresh every new project.
+
+## The Community Is Different
+
+Something often underestimated about a framework is the quality of its community. This is where Nuxt holds a genuine advantage. The community is warm, responsive, and — something I value a lot — not overly formal.
+
+I once found a typo in the documentation, made a pull request to fix it, and within a few hours it was merged. Not because my contribution was exceptional, but because the community is genuinely open to improvements of any size. That kind of experience changes how you think about open source participation.
+
+---
+
+If you've been hesitant to try Vue because the ecosystem felt immature, I can say from direct experience that hesitation is no longer warranted. Nuxt is at a very solid point, and the community behind it continues to grow.
