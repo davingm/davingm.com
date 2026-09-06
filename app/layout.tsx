@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://davingm.com"),
   title: {
     default: "Kin's Blog",
-    template: "%s | Kin's Blog",
+    template: "%s — Kin's Blog",
   },
   description: "纯 SSG 静态博客，极简设计，专注内容与性能。",
   authors: [{ name: "Kin", url: "https://davingm.com" }],
