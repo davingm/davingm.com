@@ -1,34 +1,34 @@
 ---
 title: "About"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-08-27 22:49:18"
+updatedAt: "2026-09-06T21:52:09+08:00"
 comments:
   enabled: true
   total: 2
   provider: "giscus"
   items:
     - author: "davingm"
-      avatar: "https://avatars.githubusercontent.com/u/583231?v=4"
+      avatar: "https://github.com/davingm.png"
       date: "2026-08-28"
-      content: "Welcome to comments!"
+      content: "Welcome to the comment section!"
     - author: "davingm"
-      avatar: "https://avatars.githubusercontent.com/u/583231?v=4"
+      avatar: "https://github.com/davingm.png"
       date: "2026-08-28"
       content: "😄"
 ---
 
-Hey~ Welcome to Kin's personal site!
+Hi~ Welcome to Kin's personal blog site ([@davingm](https://github.com/davingm))!
 
 ## About Me:
 
 > **Note**
 >
-> Currently studying & hacking on frontend infrastructure
+> A student learning and tinkering with frontend infrastructure
 
-Focused on frontend engineering, TypeScript, Rust, and modern web performance optimization.
+Focused on frontend engineering, TypeScript, Rust, Vue.js, and modern web performance optimization.
 
-## Sponsor
+## Donate / Sponsor
 
-If you enjoy my work, consider sponsoring me: [Afdian](https://afdian.com) or [GitHub Sponsors](https://github.com/sponsors)
+If you want to support me, please consider donating via: [Afdian](https://afdian.com/a/davingm), [GitHub Sponsors](https://github.com/sponsors/davingm), or [saweria.co](https://saweria.co/davingm)
 
-Thanks for visiting!
+Thank you for visiting!

@@ -1,29 +1,36 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-09-06T15:21:30+07:00"
-description: "Friend links sorted by name."
+updatedAt: "2026-09-06T21:52:09+08:00"
+description: "Links from friends sorted alphabetically by name."
 links:
-  - name: "Kaka Viangi"
-    desc: "Passionate Nextjs Developer"
-    url: "https://aomanhao.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000001?v=4"
-    stack: i-simple-icons-nextdotjs
+  - name: "Nairha"
+    desc: "Fragrant and pleasant"
+    url: "https://nairha.nlfts.dev"
+    avatar: "https://github.com/nairha.png"
+  - name: "Radiedtya"
+    desc: "Fragrant and pleasant"
+    url: "https://www.radiedtya.web.id/"
+    avatar: "https://github.com/radiedtya.png"
+  - name: "sidiktsq"
+    desc: "Building brutal, functional, and beautiful web experiences"
+    url: "https://sidiktsq.nlfts.dev"
+    avatar: "https://github.com/sidiktsq.png"
 ---
 
-## Site Information
+## About This Site
 
 ```ts
 const info = {
-  name: "Ray's Blog",
-  nickname: "Ray",
-  description: "Never say never.",
-  url: "https://mk1.io",
-  avatar: "https://img.mk1.io/img/avatar.png",
+  name: "Kin's Blog",
+  nickname: "Kin You",
+  description: "Veni, Vidi, Vici.",
+  url: "https://davingm.com",
+  avatar: "https://github.com/davingm.png",
 };
 ```
 
-## Application Format
+## Submission Format
 
 ```ts
 interface Link {
@@ -36,12 +43,14 @@ interface Link {
 
 ## Requirements
 
-- The site should be focused on an individual, with healthy content that complies with applicable laws and regulations in mainland China.
-- The site should have its own domain name and use HTTPS throughout.
-- The site should have been established for at least six months, with more than five original articles and evidence of ongoing maintenance.
-- The site should provide an independent page for friend links.
+- The site is run by an individual, contains safe and legal content, and complies with the laws in Mainland China and the Republic of Indonesia.
+- The site has its own domain name and uses HTTPS.
+- The site has been running for at least six months, has more than five original articles, and is actively maintained.
+- The site provides a dedicated page for friend links.
+- The site should be well indexed by search engines. If using a framework such as Next.js or Nuxt, the site must implement SSR (Server-Side Rendering), SSG (Static Site Generation), or prerendering.
 
 ## Notes
 
-- Meeting all requirements does not guarantee approval. Friend links are reviewed based on quality and relevance.
-- Friend links may be checked periodically. If a link cannot be accessed normally for more than three months or is removed, it may be removed without prior notice.
+- Meeting all requirements does not guarantee acceptance. Friend links will be reviewed based on quality and relevance.
+- Friend links may be checked periodically. If a site cannot be accessed for more than three months or has been removed, the link may be removed without prior notice.
+- Send your site information in the comment section below, and Kin will review and add your link to this list if it meets the requirements.

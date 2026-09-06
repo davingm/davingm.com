@@ -1,56 +1,32 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-08-28 00:49:11"
-description: "友情链接按名称排列。"
+updatedAt: "2026-09-06T21:52:09+08:00"
+description: "按姓名字母顺序排列的友情链接。"
 links:
-  - name: "AomanHao"
-    desc: "热爱图像处理，优化彩色世界"
-    url: "https://aomanhao.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000001?v=4"
-  - name: "CyanFalse's Weblog"
-    desc: "I'm CyanFalse, New to Here."
-    url: "https://cyanfalse.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000002?v=4"
-  - name: "JokerM's Palace"
-    desc: "Take your heart"
-    url: "https://jokerm.com"
-    avatar: "https://avatars.githubusercontent.com/u/1000003?v=4"
-  - name: "Kevin Deng"
-    desc: "Software Engineer & Open Source Enthusiast"
-    url: "https://kevindeng.dev"
-    avatar: "https://avatars.githubusercontent.com/u/1000004?v=4"
-  - name: "Lete乐特"
-    desc: "人生只有一次，大胆的生活！！"
-    url: "https://lete114.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000005?v=4"
-  - name: "Modenc"
-    desc: "喜欢钻研各种新奇的东西。"
-    url: "https://modenc.com"
-    avatar: "https://avatars.githubusercontent.com/u/1000006?v=4"
-  - name: "SkyWalker"
-    desc: "listening snow"
-    url: "https://skywalker.blog"
-    avatar: "https://avatars.githubusercontent.com/u/1000007?v=4"
-  - name: "Tianli"
-    desc: "自知之明是最可贵的知识!"
-    url: "https://tianli-blog.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000008?v=4"
-  - name: "Zapic's Blog"
-    desc: "A developer's random thoughts."
-    url: "https://zapic.me"
-    avatar: "https://avatars.githubusercontent.com/u/1000009?v=4"
+  - name: "Nairha"
+    desc: "清香宜人"
+    url: "https://nairha.nlfts.dev"
+    avatar: "https://github.com/nairha.png"
+  - name: "Radiedtya"
+    desc: "清香宜人"
+    url: "https://www.radiedtya.web.id/"
+    avatar: "https://github.com/radiedtya.png"
+  - name: "sidiktsq"
+    desc: "构建残酷、功能性且美观的 Web 体验"
+    url: "https://sidiktsq.nlfts.dev"
+    avatar: "https://github.com/sidiktsq.png"
 ---
 
-## 本站信息
+## 关于本站
 
 ```ts
 const info = {
-  name: "Ray's Blog",
-  nickname: "Ray",
-  description: "Never say never.",
-  url: "https://mk1.io",
-  avatar: "https://img.mk1.io/img/avatar.png",
+  name: "Kin's Blog",
+  nickname: "Kin You",
+  description: "Veni, Vidi, Vici.",
+  url: "https://davingm.com",
+  avatar: "https://github.com/davingm.png",
 };
 ```
 
@@ -67,12 +43,14 @@ interface Link {
 
 ## 要求
 
-- 网站以个人为主体，内容健康，符合中国大陆现行法律法规。
+- 网站以个人为主体，内容健康，且符合中国大陆和印度尼西亚共和国相关法律法规。
 - 拥有独立域名，全站使用 HTTPS。
 - 建站时间在半年以上，原创文章大于 5 篇，并且持续维护。
-- 需要有独立页面展示友情链接。
+- 需要有独立页面用于展示友情链接。
+- 网站应能够被搜索引擎良好收录。如果使用 Next.js 或 Nuxt 等框架，网站必须实现 SSR（服务端渲染）、SSG（静态站点生成）或预渲染技术。
 
-## 注意事项
+## 备注
 
-- 即使满足上述所有条件，本页仍保留友情链接的审核权利，会根据友链质量和内容相关性进行主观判断。
-- 本站会不定期对所有友链进行检查。若发现 3 个月以上不能正常访问，或友链被取消，可能会在无通知的情况下取消友链，望周知。
+- 即使满足上述所有条件，本页仍保留友情链接的审核权利，并会根据友链质量和相关性进行评估。
+- 本站会不定期检查所有友链。如果连续三个月以上无法正常访问，或者友链已被移除，可能会在不另行通知的情况下删除该链接。
+- 将你的网站信息填写在下方评论区，Kin 会在审核后，如果符合要求，则将其加入此列表。
