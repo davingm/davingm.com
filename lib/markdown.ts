@@ -25,10 +25,12 @@ function headingToId(rawText: string): string {
 
 export function extractHeadings(markdown: string): HeadingItem[] {
   const headings: HeadingItem[] = [];
-  const lines = markdown.split("\n");
+  // Normalize Windows CRLF → LF agar split bersih
+  const lines = markdown.replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
 
   for (const line of lines) {
-    const match = line.match(/^(#{1,6})\s+(.+)$/);
+    const trimmed = line.trimEnd(); // buang \r sisa
+    const match = trimmed.match(/^(#{1,6})\s+(.+)$/);
     if (match) {
       const level = match[1].length;
       const rawText = match[2].trim();
