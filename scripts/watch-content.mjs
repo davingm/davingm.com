@@ -26,7 +26,7 @@ function isManagedFile(filePath) {
     return extension === ".md" || extension === ".mdx";
   }
 
-  return /^www\/[^/]+\/(about\.md|links\.yml|projects\.yml)$/.test(relativePath);
+  return /^www\/[^/]+\/(about\.md|links\.md|projects\.yml)$/.test(relativePath);
 }
 
 function nowWithOffset() {

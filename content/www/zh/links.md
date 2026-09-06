@@ -1,3 +1,4 @@
+---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
 updatedAt: "2026-08-28 00:49:11"
@@ -39,3 +40,39 @@ links:
     desc: "A developer's random thoughts."
     url: "https://zapic.me"
     avatar: "https://avatars.githubusercontent.com/u/1000009?v=4"
+---
+
+## 本站信息
+
+```ts
+const info = {
+  name: "Ray's Blog",
+  nickname: "Ray",
+  description: "Never say never.",
+  url: "https://mk1.io",
+  avatar: "https://img.mk1.io/img/avatar.png",
+};
+```
+
+## 申请格式
+
+```ts
+interface Link {
+  name: "网站名称";
+  description: "网站描述";
+  url: "https://example.com";
+  avatar?: "https://example.com/logo.png";
+}
+```
+
+## 要求
+
+- 网站以个人为主体，内容健康，符合中国大陆现行法律法规。
+- 拥有独立域名，全站使用 HTTPS。
+- 建站时间在半年以上，原创文章大于 5 篇，并且持续维护。
+- 需要有独立页面展示友情链接。
+
+## 注意事项
+
+- 即使满足上述所有条件，本页仍保留友情链接的审核权利，会根据友链质量和内容相关性进行主观判断。
+- 本站会不定期对所有友链进行检查。若发现 3 个月以上不能正常访问，或友链被取消，可能会在无通知的情况下取消友链，望周知。

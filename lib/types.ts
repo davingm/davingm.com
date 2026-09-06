@@ -74,6 +74,7 @@ export interface LinksData {
   updatedAt: string;
   description: string;
   links: FriendLink[];
+  content: string;
 }
 
 export interface CommentItem {

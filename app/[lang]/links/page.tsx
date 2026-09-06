@@ -1,6 +1,7 @@
 import { getLinksData } from "@/lib/content";
 import { Language } from "@/lib/types";
 import { PageContainer } from "@/components/PageContainer";
+import { renderMarkdown } from "@/lib/markdown";
 import * as simpleIcons from "simple-icons";
 import type { Metadata } from "next";
 
@@ -40,6 +41,7 @@ export default async function LinksPage({
 }) {
   const { lang } = (await params) as { lang: Language };
   const data = getLinksData(lang);
+  const contentHtml = await renderMarkdown(data.content);
   const links = [...data.links].sort((a, b) =>
     a.name.localeCompare(b.name, lang, { sensitivity: "base" }),
   );
@@ -122,6 +124,13 @@ export default async function LinksPage({
           );
         })}
       </div>
+
+      {data.content && (
+        <div
+          className="prose text-sm max-w-none border-t border-[var(--color-border)] pt-8 pb-8"
+          dangerouslySetInnerHTML={{ __html: contentHtml }}
+        />
+      )}
       </div>
     </PageContainer>
   );

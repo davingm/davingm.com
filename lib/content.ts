@@ -57,13 +57,15 @@ export function getAboutData(lang: Language = "zh"): AboutData {
 }
 
 export function getLinksData(lang: Language = "zh"): LinksData {
-  const filePath = path.join(CONTENT_DIR, "www", lang, "links.yml");
+  const filePath = path.join(CONTENT_DIR, "www", lang, "links.md");
   if (fs.existsSync(filePath)) {
-    return load(fs.readFileSync(filePath, "utf8")) as LinksData;
+    const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+    return { ...data, content } as LinksData;
   }
-  const fallback = path.join(CONTENT_DIR, "www", "zh", "links.yml");
+  const fallback = path.join(CONTENT_DIR, "www", "zh", "links.md");
   if (fs.existsSync(fallback)) {
-    return load(fs.readFileSync(fallback, "utf8")) as LinksData;
+    const { data, content } = matter(fs.readFileSync(fallback, "utf8"));
+    return { ...data, content } as LinksData;
   }
   return {
     title: "Links",
@@ -71,6 +73,7 @@ export function getLinksData(lang: Language = "zh"): LinksData {
     updatedAt: "2026-08-28 00:49:11",
     description: "",
     links: [],
+    content: "",
   };
 }
 
