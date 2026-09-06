@@ -17,18 +17,18 @@ comments:
       content: "😄"
 ---
 
-Hai~ Selamat datang di situs pribadi Kin!
+Hai~ Selamat datang di situs blog pribadi Kin ( [@davingm](https://github.com/davingm) ) !
 
 ## Tentang Saya:
 
 > **Note**
 >
-> Saat ini belajar dan bereksperimen di rekayasa frontend
+> Mahasiswa yang sedang belajar & mengutak-atik infrastruktur frontend
 
-Fokus pada rekayasa frontend, TypeScript, Rust, dan optimalisasi performa web modern.
+Fokus pada rekayasa frontend, TypeScript, Rust, Vuejs dan optimalisasi performa web modern.
 
 ## Donasi / Sponsor
 
-Jika Anda ingin mendukung, silakan pertimbangkan donasi di: [Afdian](https://afdian.com) atau [GitHub Sponsors](https://github.com/sponsors)
+Jika Anda ingin mendukung, silakan pertimbangkan donasi di: [Afdian](https://afdian.com/a/davingm) atau [GitHub Sponsors](https://github.com/sponsors/davingm) dan [saweria.co](https://saweria.co/davingm)
 
 Terima kasih telah berkunjung!
