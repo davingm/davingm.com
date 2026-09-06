@@ -1,6 +1,7 @@
 import { getAllProjectPosts, getProjectPostBySlug, getSiteConfig } from "@/lib/content";
-import { renderMarkdown } from "@/lib/markdown";
+import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { Language } from "@/lib/types";
+import { TableOfContents } from "@/components/TableOfContents";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -49,15 +50,17 @@ export default async function ProjectDetailPage({
   }
 
   const html = await renderMarkdown(project.content);
+  const headings = extractHeadings(project.content);
 
   return (
-    <article className="space-y-8">
-      <Link
-        href={`/${lang}/projects`}
-        className="text-xs font-mono text-[var(--color-accent)] hover:underline inline-flex items-center gap-1"
-      >
-        &larr; {lang === "zh" ? "返回项目列表" : lang === "id" ? "Kembali ke proyek" : "Back to projects"}
-      </Link>
+    <div className="flex gap-10 items-start w-full max-w-4xl mx-auto px-5 sm:px-8">
+      <article className="flex-1 min-w-0 space-y-8">
+        <Link
+          href={`/${lang}/projects`}
+          className="text-xs font-mono text-[var(--color-accent)] hover:underline inline-flex items-center gap-1"
+        >
+          &larr; {lang === "zh" ? "返回项目列表" : lang === "id" ? "Kembali ke proyek" : "Back to projects"}
+        </Link>
 
       <header className="border-b border-[var(--color-border)] pb-6 space-y-4">
         <div className="flex items-start justify-between gap-4 flex-wrap">
@@ -175,6 +178,13 @@ export default async function ProjectDetailPage({
         className="prose text-sm max-w-none"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-    </article>
+      </article>
+
+        {headings.length > 0 && (
+          <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
+            <TableOfContents headings={headings} />
+          </aside>
+        )}
+    </div>
   );
 }

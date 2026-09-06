@@ -1,5 +1,6 @@
 import { getLinksData } from "@/lib/content";
 import { Language } from "@/lib/types";
+import { PageContainer } from "@/components/PageContainer";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -27,7 +28,8 @@ export default async function LinksPage({
   const data = getLinksData(lang);
 
   return (
-    <div className="space-y-8">
+    <PageContainer>
+      <div className="space-y-8">
       <header>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
           {data.title}
@@ -81,6 +83,6 @@ export default async function LinksPage({
           </a>
         ))}
       </div>
-    </div>
+    </PageContainer>
   );
 }

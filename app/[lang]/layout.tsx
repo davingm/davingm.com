@@ -62,10 +62,14 @@ export default async function LanguageLayout({
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 flex-1 flex flex-col">
-      <Header lang={lang} site={site} searchItems={searchItems} />
-      <main className="flex-1 py-4">{children}</main>
-      <Footer site={site} />
+    <div className="w-full flex-1 flex flex-col">
+      <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+        <Header lang={lang} site={site} searchItems={searchItems} />
+      </div>
+      <main className="flex-1 py-4 w-full">{children}</main>
+      <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+        <Footer site={site} />
+      </div>
     </div>
   );
 }

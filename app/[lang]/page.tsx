@@ -1,5 +1,6 @@
 import { getSiteConfig, getAllBlogPosts } from "@/lib/content";
 import { Language } from "@/lib/types";
+import { PageContainer } from "@/components/PageContainer";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -17,7 +18,7 @@ export default async function HomePage({
   const recentPosts = posts.slice(0, 5);
 
   return (
-    <div>
+    <PageContainer>
       {/* Intro bio */}
       <section className="mb-12 text-sm leading-relaxed text-[var(--color-text)]">
         <p>{site.bio}</p>
@@ -90,6 +91,6 @@ export default async function HomePage({
           ))}
         </div>
       </section>
-    </div>
+    </PageContainer>
   );
 }

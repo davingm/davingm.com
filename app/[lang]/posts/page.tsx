@@ -1,6 +1,7 @@
 import { getAllBlogPosts, getAllCategories } from "@/lib/content";
 import { Language } from "@/lib/types";
 import { PostsList } from "./PostsList";
+import { PageContainer } from "@/components/PageContainer";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -29,12 +30,14 @@ export default async function PostsPage({
   const categories = getAllCategories(lang);
 
   return (
-    <div className="space-y-10">
-      <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)]">
-        Posts
-      </h2>
+    <PageContainer>
+      <div className="space-y-10">
+        <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)]">
+          Posts
+        </h2>
 
-      <PostsList lang={lang} posts={posts} categories={categories} />
-    </div>
+        <PostsList lang={lang} posts={posts} categories={categories} />
+      </div>
+    </PageContainer>
   );
 }

@@ -66,9 +66,8 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
 
   return (
-    <div className="relative">
-      <div className="flex flex-col lg:flex-row gap-12 items-start">
-        <article className="flex-1 min-w-0 max-w-full">
+    <div className="flex gap-10 items-start w-full max-w-4xl mx-auto px-5 sm:px-8">
+      <article className="flex-1 min-w-0">
           {/* Post Header */}
           <header className="mb-10 pb-6 border-b border-[var(--color-border)]">
             <Link
@@ -134,13 +133,11 @@ export default async function BlogPostPage({
           />
         </article>
 
-        {/* Desktop Table of Contents */}
         {headings.length > 0 && (
-          <aside className="hidden lg:block w-56 shrink-0 sticky top-12 max-h-[80vh] overflow-y-auto pl-4 border-l border-[var(--color-border)]">
+          <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
             <TableOfContents headings={headings} />
           </aside>
         )}
-      </div>
     </div>
   );
 }

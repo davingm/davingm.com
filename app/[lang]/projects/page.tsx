@@ -1,5 +1,6 @@
 import { getProjectsData, getAllProjectPosts } from "@/lib/content";
 import { Language } from "@/lib/types";
+import { PageContainer } from "@/components/PageContainer";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -29,7 +30,8 @@ export default async function ProjectsPage({
   const projectPosts = getAllProjectPosts(lang);
 
   return (
-    <div className="space-y-10">
+    <PageContainer>
+      <div className="space-y-10">
       <header>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
           {data.title}
@@ -162,6 +164,7 @@ export default async function ProjectsPage({
           {lang === "zh" ? "暂无评论。" : lang === "id" ? "Belum ada komentar." : "No comments yet."}
         </p>
       </div>
-    </div>
+      </div>
+    </PageContainer>
   );
 }

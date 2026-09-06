@@ -34,9 +34,8 @@ export default async function AboutPage({
   }));
 
   return (
-    <div className="relative">
-      <div className="flex flex-col lg:flex-row gap-12 items-start">
-        <div className="flex-1 min-w-0">
+    <div className="flex gap-10 items-start w-full max-w-4xl mx-auto px-5 sm:px-8">
+      <div className="flex-1 min-w-0">
           <header className="mb-8">
             <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
               {about.title}
@@ -136,13 +135,11 @@ export default async function AboutPage({
           )}
         </div>
 
-        {/* Desktop TOC */}
         {headings.length > 0 && (
-          <aside className="hidden lg:block w-52 shrink-0 sticky top-12 pl-4 border-l border-[var(--color-border)]">
+          <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
             <TableOfContents headings={headings} />
           </aside>
         )}
-      </div>
     </div>
   );
 }
