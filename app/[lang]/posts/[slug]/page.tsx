@@ -76,7 +76,7 @@ export default async function BlogPostPage({
        */}
       {headings.length > 0 && (
         <aside
-          className="hidden fixed top-20 w-44 max-h-[calc(100vh-6rem)] overflow-y-auto
+          className="hidden fixed top-28 w-44 max-h-[calc(100vh-8rem)] overflow-y-auto
                      border-l border-[var(--color-border)] pl-4 pt-1
                      [@media(min-width:1150px)]:block"
           style={{ left: "calc(50% + 24rem + 1.5rem)" }}

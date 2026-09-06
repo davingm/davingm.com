@@ -35,7 +35,7 @@ export default async function AboutPage({
     <>
       {headings.length > 0 && (
         <aside
-          className="hidden fixed top-20 w-44
+          className="hidden fixed top-28 w-44
                      border-l border-[var(--color-border)] pl-4 pt-1
                      [@media(min-width:1150px)]:block"
           style={{ left: "calc(50% + 24rem + 1.5rem)" }}

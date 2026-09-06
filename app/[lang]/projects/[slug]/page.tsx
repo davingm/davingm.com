@@ -183,7 +183,7 @@ export default async function ProjectDetailPage({
       </article>
 
         {headings.length > 0 && (
-          <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
+          <aside className="hidden lg:block w-48 shrink-0 sticky top-28 self-start max-h-[calc(100vh-8rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
             <TableOfContents headings={headings} />
           </aside>
         )}
