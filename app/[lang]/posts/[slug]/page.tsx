@@ -2,6 +2,7 @@ import { getAllBlogPosts, getBlogPostBySlug, getSiteConfig } from "@/lib/content
 import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { Language } from "@/lib/types";
 import { TableOfContents } from "@/components/TableOfContents";
+import { GiscusComments } from "@/components/GiscusComments";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -154,6 +155,7 @@ export default async function BlogPostPage({
           className="prose text-sm max-w-none pb-16"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <GiscusComments lang={lang} />
       </article>
     </>
   );

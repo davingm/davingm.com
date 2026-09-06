@@ -3,6 +3,7 @@ import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { Language } from "@/lib/types";
 import { TableOfContents } from "@/components/TableOfContents";
 import { PageContainer } from "@/components/PageContainer";
+import { GiscusComments } from "@/components/GiscusComments";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -47,48 +48,7 @@ export default async function AboutPage({
 
           <div className="prose text-sm max-w-none pb-16" dangerouslySetInnerHTML={{ __html: html }} />
 
-          {/* Comments section */}
-          {about.comments?.enabled && (
-            <div className="mt-16 pt-8 border-t border-[var(--color-border)]">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-sm font-bold text-[var(--color-heading)]">
-                  Comments{" "}
-                  <span className="text-xs font-normal text-[var(--color-text-muted)]">
-                    {about.comments.total}
-                  </span>
-                </h3>
-                <button className="text-xs font-medium text-[var(--color-accent)] hover:underline">
-                  Use Twikoo
-                </button>
-              </div>
-
-              <div className="space-y-4">
-                {about.comments.items?.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.avatar}
-                      alt={item.author}
-                      className="w-7 h-7 rounded-full border border-[var(--color-border)] object-cover shrink-0"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 mb-0.5">
-                        <span className="font-semibold text-[var(--color-heading)]">
-                          {item.author}
-                        </span>
-                        <span className="text-[10px] font-mono text-[var(--color-text-muted)]">
-                          {item.date}
-                        </span>
-                      </div>
-                      <div className="text-[var(--color-text)]">
-                        {item.content}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <GiscusComments lang={lang} />
         </article>
 
         {headings.length > 0 && (

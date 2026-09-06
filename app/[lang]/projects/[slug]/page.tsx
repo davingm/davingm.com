@@ -2,6 +2,7 @@ import { getAllProjectPosts, getProjectPostBySlug, getSiteConfig } from "@/lib/c
 import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { Language } from "@/lib/types";
 import { TableOfContents } from "@/components/TableOfContents";
+import { GiscusComments } from "@/components/GiscusComments";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -178,6 +179,7 @@ export default async function ProjectDetailPage({
         className="prose text-sm max-w-none"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+      <GiscusComments lang={lang} />
       </article>
 
         {headings.length > 0 && (

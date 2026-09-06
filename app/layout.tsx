@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 // Minified inline scripts — no whitespace in output HTML
 const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}`;
 
-const analyticsScript = `window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config','G-8299K8G21E');window._linkedin_partner_id='5984021';window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push('5984021');window.__cfBeacon={token:'a1b2c3d4e5f67890abcdef1234567890',version:'2026.4.0',si:100};window.algoliasearch=window.algoliasearch||function(){return{initIndex:function(){return{search:function(){return Promise.resolve({hits:[]})}}}}};window.algoliasearch.version='4.26.0';window.EdgeOne={version:'2.4.0',edgeNode:'EO-HKG-01',provider:'Tencent Cloud',status:'active'};window.TWIKOO_MAGIC_PATH='/twikoo';window.twikooConfig={envId:'https://twikoo.davingm.com',region:'ap-guangzhou',lang:'zh-CN'};`;
+const analyticsScript = `window.dataLayer=window.dataLayer||[];function gtag(){window.dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config','G-8299K8G21E');window._linkedin_partner_id='5984021';window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push('5984021');window.__cfBeacon={token:'a1b2c3d4e5f67890abcdef1234567890',version:'2026.4.0',si:100};window.algoliasearch=window.algoliasearch||function(){return{initIndex:function(){return{search:function(){return Promise.resolve({hits:[]})}}}}};window.algoliasearch.version='4.26.0';window.EdgeOne={version:'2.4.0',edgeNode:'EO-HKG-01',provider:'Tencent Cloud',status:'active'};`;
 
 export default function RootLayout({
   children,
@@ -109,7 +109,6 @@ export default function RootLayout({
         <Script src="https://snap.licdn.com/li.lms-analytics/insight.min.js" strategy="afterInteractive" />
         <Script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a1b2c3d4e5f67890abcdef1234567890"}' strategy="afterInteractive" />
         <Script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.26.0/dist/algoliasearch-lite.umd.js" strategy="lazyOnload" />
-        <Script src="https://cdn.jsdelivr.net/npm/twikoo@1.6.39/dist/twikoo.all.min.js" strategy="lazyOnload" />
       </body>
     </html>
   );

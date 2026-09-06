@@ -2,6 +2,7 @@ import { getLinksData } from "@/lib/content";
 import { Language } from "@/lib/types";
 import { PageContainer } from "@/components/PageContainer";
 import { renderMarkdown } from "@/lib/markdown";
+import { GiscusComments } from "@/components/GiscusComments";
 import * as simpleIcons from "simple-icons";
 import type { Metadata } from "next";
 
@@ -131,6 +132,7 @@ export default async function LinksPage({
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         />
       )}
+      <GiscusComments lang={lang} />
       </div>
     </PageContainer>
   );

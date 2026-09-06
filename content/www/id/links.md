@@ -42,15 +42,15 @@ links:
     avatar: "https://avatars.githubusercontent.com/u/1000009?v=4"
 ---
 
-## Informasi Situs
+## Informasi Situs ini
 
 ```ts
 const info = {
-  name: "Ray's Blog",
-  nickname: "Ray",
-  description: "Never say never.",
-  url: "https://mk1.io",
-  avatar: "https://img.mk1.io/img/avatar.png",
+  name: "Kin's Blog",
+  nickname: "Kin You",
+  description: "Veni , Vidi, Vici.",
+  url: "https://davingm.com",
+  avatar: "https://github.com/davingm.png",
 };
 ```
 
