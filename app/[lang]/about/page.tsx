@@ -2,7 +2,6 @@ import { getAboutData } from "@/lib/content";
 import { extractHeadings, renderMarkdown } from "@/lib/markdown";
 import { Language } from "@/lib/types";
 import { TableOfContents } from "@/components/TableOfContents";
-import { PageContainer } from "@/components/PageContainer";
 import { GiscusComments } from "@/components/GiscusComments";
 import type { Metadata } from "next";
 
@@ -33,30 +32,33 @@ export default async function AboutPage({
   const headings = extractHeadings(about.content);
 
   return (
-    <PageContainer>
-      <div className="flex gap-10 items-start">
-        <article className="flex-1 min-w-0">
-          <header className="mb-8">
-            <h1 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
-              {about.title}
-            </h1>
-            <div className="text-xs font-mono text-[var(--color-text-muted)] space-y-0.5">
-              <div>{about.publishedAt}</div>
-              <div>Updated {about.updatedAt}</div>
-            </div>
-          </header>
+    <>
+      {headings.length > 0 && (
+        <aside
+          className="hidden fixed top-20 w-44
+                     border-l border-[var(--color-border)] pl-4 pt-1
+                     [@media(min-width:1150px)]:block"
+          style={{ left: "calc(50% + 24rem + 1.5rem)" }}
+        >
+          <TableOfContents headings={headings} />
+        </aside>
+      )}
 
-          <div className="prose text-sm max-w-none pb-16" dangerouslySetInnerHTML={{ __html: html }} />
+      <article className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+        <header className="mb-8">
+          <h1 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
+            {about.title}
+          </h1>
+          <div className="text-xs font-mono text-[var(--color-text-muted)] space-y-0.5">
+            <div>{about.publishedAt}</div>
+            <div>Updated {about.updatedAt}</div>
+          </div>
+        </header>
 
-          <GiscusComments lang={lang} />
-        </article>
+        <div className="prose text-sm max-w-none pb-16" dangerouslySetInnerHTML={{ __html: html }} />
 
-        {headings.length > 0 && (
-          <aside className="hidden lg:block w-48 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4">
-            <TableOfContents headings={headings} />
-          </aside>
-        )}
-      </div>
-    </PageContainer>
+        <GiscusComments lang={lang} />
+      </article>
+    </>
   );
 }

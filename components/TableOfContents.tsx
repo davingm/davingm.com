@@ -33,7 +33,7 @@ export function TableOfContents({ headings }: { headings: HeadingItem[] }) {
       <h3 className="font-semibold text-[var(--color-heading)] mb-3 tracking-wide">
         On this page
       </h3>
-      <ul className="space-y-2">
+      <ul className="space-y-2 max-h-36 overflow-y-auto pr-1">
         {headings.map((h) => (
           <li
             key={h.id}
