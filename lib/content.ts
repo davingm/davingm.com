@@ -38,20 +38,21 @@ export function getSiteConfig(lang: Language = "zh"): SiteConfig {
 }
 
 export function getAboutData(lang: Language = "zh"): AboutData {
-  const filePath = path.join(CONTENT_DIR, "www", lang, "about.yml");
+  const filePath = path.join(CONTENT_DIR, "www", lang, "about.md");
   if (fs.existsSync(filePath)) {
-    return load(fs.readFileSync(filePath, "utf8")) as AboutData;
+    const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+    return { ...data, content } as AboutData;
   }
-  const fallback = path.join(CONTENT_DIR, "www", "zh", "about.yml");
+  const fallback = path.join(CONTENT_DIR, "www", "zh", "about.md");
   if (fs.existsSync(fallback)) {
-    return load(fs.readFileSync(fallback, "utf8")) as AboutData;
+    const { data, content } = matter(fs.readFileSync(fallback, "utf8"));
+    return { ...data, content } as AboutData;
   }
   return {
     title: "About",
     publishedAt: "2026-08-27 21:59:19",
     updatedAt: "2026-08-27 22:49:18",
-    greeting: "Hi!",
-    sections: [],
+    content: "",
   };
 }
 

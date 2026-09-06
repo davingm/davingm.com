@@ -75,14 +75,6 @@ export interface LinksData {
   links: FriendLink[];
 }
 
-export interface AboutSection {
-  id: string;
-  title: string;
-  note?: string;
-  content: string;
-  footnote?: string;
-}
-
 export interface CommentItem {
   author: string;
   avatar: string;
@@ -94,8 +86,7 @@ export interface AboutData {
   title: string;
   publishedAt: string;
   updatedAt: string;
-  greeting: string;
-  sections: AboutSection[];
+  content: string;
   comments?: {
     enabled: boolean;
     total: number;
