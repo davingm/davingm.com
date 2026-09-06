@@ -1,9 +1,37 @@
 import { marked } from "marked";
+import { createHighlighter } from "shiki";
 
 export interface HeadingItem {
   id: string;
   text: string;
   level: number;
+}
+
+const highlighterPromise = createHighlighter({
+  themes: ["github-light", "github-dark"],
+  langs: ["vue", "html", "javascript", "typescript", "css", "jsx"],
+});
+
+function getHighlightLanguage(language: string) {
+  const normalized = language.toLowerCase().trim();
+
+  if (normalized === "vue") return "vue";
+  if (["html", "xml"].includes(normalized)) return "html";
+  if (["ts", "typescript"].includes(normalized)) return "typescript";
+  if (["css", "scss", "less"].includes(normalized)) return "css";
+  if (["jsx", "react", "reactjs"].includes(normalized)) return "jsx";
+
+  // Keep one predictable color language for Java, C/C++, Rust, and other formats.
+  return "javascript";
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function headingToId(rawText: string): string {
@@ -47,6 +75,7 @@ export function extractHeadings(markdown: string): HeadingItem[] {
 export async function renderMarkdown(markdown: string): Promise<string> {
   // Configure marked renderer
   const renderer = new marked.Renderer();
+  const codeBlocks: { text: string; language: string }[] = [];
 
   renderer.heading = ({ tokens, depth }) => {
     const raw = tokens.map((t) => t.raw).join("");
@@ -55,17 +84,8 @@ export async function renderMarkdown(markdown: string): Promise<string> {
   };
 
   renderer.code = ({ text, lang }) => {
-    const language = lang || "text";
-    const escaped = text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
-    return `<div class="code-block-wrapper my-4 relative rounded-md border border-[var(--color-border)] bg-[var(--color-code-bg)] overflow-hidden font-mono text-sm">
-      <div class="flex items-center justify-between px-3 py-1.5 text-xs text-[var(--color-text-muted)] border-b border-[var(--color-border)] bg-[var(--color-code-header)]">
-        <span>${language}</span>
-      </div>
-      <pre class="p-4 overflow-x-auto"><code>${escaped}</code></pre>
-    </div>`;
+    const index = codeBlocks.push({ text, language: lang || "text" }) - 1;
+    return `<!--MARKDOWN_CODE_BLOCK_${index}-->`;
   };
 
   renderer.blockquote = ({ tokens }) => {
@@ -93,5 +113,28 @@ export async function renderMarkdown(markdown: string): Promise<string> {
     renderer,
   });
 
-  return await marked.parse(markdown);
+  const rendered = await marked.parse(markdown);
+  const highlighter = await highlighterPromise;
+  const blocks = await Promise.all(
+    codeBlocks.map(({ text, language }) => {
+      const highlighted = highlighter.codeToHtml(text, {
+        lang: getHighlightLanguage(language),
+        themes: { light: "github-light", dark: "github-dark" },
+      });
+      const safeLanguage = escapeHtml(language);
+
+      return `<div class="code-block-wrapper my-4 relative rounded-md border border-[var(--color-border)] bg-[var(--color-code-bg)] overflow-hidden font-mono text-sm" data-code-block>
+        <div class="flex items-center justify-between gap-3 px-3 py-1.5 text-xs text-[var(--color-text-muted)] border-b border-[var(--color-border)] bg-[var(--color-code-header)]">
+          <span>${safeLanguage}</span>
+          <button type="button" class="code-copy-button" data-code-copy aria-label="Copy code">Copy</button>
+        </div>
+        <div class="code-block-content overflow-x-auto">${highlighted}</div>
+      </div>`;
+    }),
+  );
+
+  return rendered.replace(
+    /<!--MARKDOWN_CODE_BLOCK_(\d+)-->/g,
+    (_, index: string) => blocks[Number(index)] || "",
+  );
 }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { MarkdownCodeCopy } from "@/components/MarkdownCodeCopy";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -103,6 +104,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col font-sans transition-colors duration-150`}
       >
         {children}
+        <MarkdownCodeCopy />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-8299K8G21E" strategy="afterInteractive" />
         <Script src="https://snap.licdn.com/li.lms-analytics/insight.min.js" strategy="afterInteractive" />
         <Script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"a1b2c3d4e5f67890abcdef1234567890"}' strategy="afterInteractive" />
