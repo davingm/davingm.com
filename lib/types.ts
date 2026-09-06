@@ -65,6 +65,7 @@ export interface FriendLink {
   desc: string;
   url: string;
   avatar?: string;
+  stack?: string;
 }
 
 export interface LinksData {

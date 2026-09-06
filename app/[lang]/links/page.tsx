@@ -1,7 +1,21 @@
 import { getLinksData } from "@/lib/content";
 import { Language } from "@/lib/types";
 import { PageContainer } from "@/components/PageContainer";
+import * as simpleIcons from "simple-icons";
 import type { Metadata } from "next";
+
+function getStackIcon(stack?: string) {
+  if (!stack) return null;
+
+  const iconName = `si${stack
+    .replace(/^i-simple-icons-/, "")
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("")}` as keyof typeof simpleIcons;
+
+  const icon = simpleIcons[iconName];
+  return icon && "path" in icon ? icon : null;
+}
 
 export function generateStaticParams() {
   return [{ lang: "zh" }, { lang: "en" }, { lang: "id" }];
@@ -26,6 +40,9 @@ export default async function LinksPage({
 }) {
   const { lang } = (await params) as { lang: Language };
   const data = getLinksData(lang);
+  const links = [...data.links].sort((a, b) =>
+    a.name.localeCompare(b.name, lang, { sensitivity: "base" }),
+  );
 
   return (
     <PageContainer>
@@ -48,7 +65,10 @@ export default async function LinksPage({
 
       {/* Link cards list */}
       <div className="space-y-3">
-        {data.links.map((link) => (
+        {links.map((link) => {
+          const stackIcon = getStackIcon(link.stack);
+
+          return (
           <a
             key={link.name}
             href={link.url}
@@ -80,8 +100,27 @@ export default async function LinksPage({
                 </p>
               )}
             </div>
+
+            {stackIcon && (
+              <span
+                className="shrink-0 inline-flex items-center justify-center"
+                title={stackIcon.title}
+                aria-label={`${stackIcon.title} stack`}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  role="img"
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  style={{ color: `#${stackIcon.hex}` }}
+                  dangerouslySetInnerHTML={{ __html: `<path d="${stackIcon.path}" />` }}
+                />
+              </span>
+            )}
           </a>
-        ))}
+          );
+        })}
       </div>
       </div>
     </PageContainer>
