@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { TramFront } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { SearchModal, SearchItem } from "./SearchModal";
@@ -57,6 +58,15 @@ export function Header({ lang, site, currentPath = "", searchItems = [] }: Heade
           <SearchModal lang={lang} items={searchItems} />
           <ThemeToggle />
           <LanguageSwitcher currentLang={lang} />
+          <a
+            href="https://www.travellings.cn/go"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Traveling link"
+            className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text-muted)] hover:text-[var(--color-heading)] hover:border-[var(--color-accent)] transition-colors"
+          >
+            <TramFront className="w-4 h-4" />
+          </a>
         </div>
       </div>
 

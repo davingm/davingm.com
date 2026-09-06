@@ -1,45 +1,21 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-08-28 00:49:11"
+updatedAt: "2026-09-06T20:35:41+08:00"
 description: "Tautan teman diurutkan berdasarkan abjad nama."
 links:
-  - name: "AomanHao"
-    desc: "Tertarik pada pengolahan gambar dan seni digital"
-    url: "https://aomanhao.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000001?v=4"
-  - name: "CyanFalse's Weblog"
-    desc: "I'm CyanFalse, New to Here."
-    url: "https://cyanfalse.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000002?v=4"
-  - name: "JokerM's Palace"
-    desc: "Take your heart"
-    url: "https://jokerm.com"
-    avatar: "https://avatars.githubusercontent.com/u/1000003?v=4"
-  - name: "Kevin Deng"
-    desc: "Software Engineer & Open Source Enthusiast"
-    url: "https://kevindeng.dev"
-    avatar: "https://avatars.githubusercontent.com/u/1000004?v=4"
-  - name: "Lete乐特"
-    desc: "Hidup hanya sekali, jalani dengan berani!!"
-    url: "https://lete114.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000005?v=4"
-  - name: "Modenc"
-    desc: "Suka mengulik teknologi baru."
-    url: "https://modenc.com"
-    avatar: "https://avatars.githubusercontent.com/u/1000006?v=4"
-  - name: "SkyWalker"
-    desc: "listening snow"
-    url: "https://skywalker.blog"
-    avatar: "https://avatars.githubusercontent.com/u/1000007?v=4"
-  - name: "Tianli"
-    desc: "Mengenal diri sendiri adalah pengetahuan paling berharga!"
-    url: "https://tianli-blog.top"
-    avatar: "https://avatars.githubusercontent.com/u/1000008?v=4"
-  - name: "Zapic's Blog"
-    desc: "A developer's random thoughts."
-    url: "https://zapic.me"
-    avatar: "https://avatars.githubusercontent.com/u/1000009?v=4"
+  - name: "Nairha"
+    desc: "Harum dan wangi"
+    url: "https://nairha.nlfts.dev"
+    avatar: "https://github.com/nairha.png"
+  - name: "Radiedtya"
+    desc: "Harum dan wangi"
+    url: "https://www.radiedtya.web.id/"
+    avatar: "https://github.com/radiedtya.png"
+  - name: "sidiktsq"
+    desc: "Membangun pengalaman web yang brutal, fungsional, dan indah"
+    url: "https://sidiktsq.nlfts.dev"
+    avatar: "https://github.com/sidiktsq.png"
 ---
 
 ## Informasi Situs ini
@@ -67,12 +43,14 @@ interface Link {
 
 ## Persyaratan
 
-- Situs berfokus pada individu, memiliki konten yang sehat, dan mematuhi hukum serta peraturan yang berlaku di Tiongkok daratan.
-- Situs memiliki nama domain sendiri dan menggunakan HTTPS.
-- Situs telah berdiri setidaknya enam bulan, memiliki lebih dari lima artikel orisinal, dan masih aktif dikelola.
-- Situs menyediakan halaman khusus untuk tautan teman.
+- Situs dikelola secara individu, memuat konten yang aman dan legal, serta patuh terhadap hukum yang berlaku di wilayah Tiongkok Daratan dan Republik Indonesia.
+- Situs memiliki nama domain mandiri dan menggunakan HTTPS.
+- Situs telah beroperasi setidaknya enam bulan, memiliki lebih dari lima artikel orisinal, dan aktif dikelola.
+- Situs menyediakan halaman khusus untuk tautan teman (友情链接).
+- Situs harus dapat diindeks dengan baik oleh mesin pencari. Jika menggunakan framework seperti Next.js atau Nuxt, situs wajib menerapkan teknologi SSR (Server-Side Rendering), SSG (Static Site Generation), atau prerendering.
 
 ## Catatan
 
 - Memenuhi semua persyaratan tidak menjamin pengajuan diterima. Tautan teman akan ditinjau berdasarkan kualitas dan relevansinya.
-- Tautan teman dapat diperiksa secara berkala. Jika tidak dapat diakses selama lebih dari tiga bulan atau sudah dihapus, tautan dapat dihapus tanpa pemberitahuan sebelumnya.
+- Tautan teman dapat diperiksa secara berkala. Jika tidak dapat diakses selama lebih dari tiga bulan atau sudah dihapus, tautan dapat dihapus tanpa pemberitahuan.
+- Masukan data situsmu di kolom komentar di bawah maka Kin akan meninjau dan menambahkan tautanmu ke daftar ini jika memenuhi persyaratan.
