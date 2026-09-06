@@ -17,7 +17,7 @@ function getSiteConfig(lang = "zh") {
   return {
     title: "Kin's Blog",
     author: "Kin",
-    tagline: "Now or never .",
+    tagline: "Veni , Vidi, Vici.",
     url: "https://davingm.com",
     description: "纯 SSG 静态博客",
   };

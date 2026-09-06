@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Language } from "@/lib/types";
 import { SearchItem } from "@/components/SearchModal";
+import { TabTitle } from "@/components/TabTitle";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -20,7 +21,7 @@ export async function generateMetadata({
   return {
     title: {
       default: site.title,
-      template: `%s | ${site.title}`,
+      template: `%s — ${site.title}`,
     },
     description: site.description,
   };
@@ -62,10 +63,15 @@ export default async function LanguageLayout({
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 flex-1 flex flex-col">
-      <Header lang={lang} site={site} searchItems={searchItems} />
-      <main className="flex-1 py-4">{children}</main>
-      <Footer site={site} />
+    <div className="w-full flex-1 flex flex-col">
+      <TabTitle lang={lang} />
+      <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+        <Header lang={lang} site={site} searchItems={searchItems} />
+      </div>
+      <main className="flex-1 py-4 w-full">{children}</main>
+      <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+        <Footer site={site} />
+      </div>
     </div>
   );
 }

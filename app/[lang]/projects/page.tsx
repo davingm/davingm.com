@@ -1,5 +1,7 @@
 import { getProjectsData, getAllProjectPosts } from "@/lib/content";
 import { Language } from "@/lib/types";
+import { PageContainer } from "@/components/PageContainer";
+import { GiscusComments } from "@/components/GiscusComments";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -29,7 +31,8 @@ export default async function ProjectsPage({
   const projectPosts = getAllProjectPosts(lang);
 
   return (
-    <div className="space-y-10">
+    <PageContainer>
+      <div className="space-y-10">
       <header>
         <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)] mb-3">
           {data.title}
@@ -148,20 +151,8 @@ export default async function ProjectsPage({
         </section>
       )}
 
-      {/* Comments section */}
-      <div className="pt-8 border-t border-[var(--color-border)]">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-bold text-[var(--color-heading)]">
-            Comments
-          </h3>
-          <button className="text-xs font-medium text-[var(--color-accent)] hover:underline">
-            Use Twikoo
-          </button>
-        </div>
-        <p className="text-xs text-[var(--color-text-muted)]">
-          {lang === "zh" ? "暂无评论。" : lang === "id" ? "Belum ada komentar." : "No comments yet."}
-        </p>
+      <GiscusComments lang={lang} />
       </div>
-    </div>
+    </PageContainer>
   );
 }

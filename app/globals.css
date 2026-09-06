@@ -111,6 +111,41 @@ body {
   color: var(--color-accent);
 }
 
+.code-copy-button {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  color: var(--color-text-muted);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+.code-copy-button:hover {
+  color: var(--color-heading);
+  border-color: var(--color-accent);
+  background-color: var(--color-card-hover);
+}
+.code-block-content .shiki {
+  margin: 0;
+  padding: 1rem;
+  overflow: visible;
+  background-color: var(--shiki-light-bg) !important;
+  color: var(--shiki-light) !important;
+}
+html.dark .code-block-content .shiki {
+  background-color: var(--shiki-dark-bg) !important;
+  color: var(--shiki-dark) !important;
+}
+.code-block-content .shiki span {
+  color: var(--shiki-light) !important;
+}
+html.dark .code-block-content .shiki span {
+  color: var(--shiki-dark) !important;
+}
+
 .prose img {
   border-radius: 8px;
   margin: 1.25em 0;

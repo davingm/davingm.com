@@ -1,5 +1,6 @@
 import { getGroupedArchivePosts } from "@/lib/content";
 import { Language } from "@/lib/types";
+import { PageContainer } from "@/components/PageContainer";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -29,7 +30,8 @@ export default async function ArchivePage({
   const years = Object.keys(grouped).sort((a, b) => b.localeCompare(a));
 
   return (
-    <div className="space-y-10">
+    <PageContainer>
+      <div className="space-y-10">
       <h2 className="text-2xl font-bold tracking-tight text-[var(--color-heading)]">
         Archive
       </h2>
@@ -69,6 +71,7 @@ export default async function ArchivePage({
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </PageContainer>
   );
 }

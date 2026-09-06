@@ -1,10 +1,10 @@
 title: "Kin's Blog"
 author: "Kin"
 avatar: "/images/author.jpg"
-tagline: "Now or never ."
+tagline: "Veni , Vidi, Vici."
 url: "https://davingm.com"
 description: "Blog statis pure SSG, desain minimalis, fokus pada konten dan performa."
-bio: "Hai, saya Kin! Ini adalah blog yang saya bangun dengan Inkcairn, meminimalkan penggunaan JavaScript semaksimal mungkin, agar dapat fokus menulis konten yang menarik."
+bio: "Hai, saya Kin! Ini adalah blog yang saya bangun dengan nextjs, meminimalkan penggunaan JavaScript semaksimal mungkin, agar dapat fokus menulis konten yang menarik."
 commit: "121c93e"
 generator: "made with nextjs v16.3.4"
 nav:

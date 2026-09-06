@@ -46,10 +46,10 @@ export function LanguageSwitcher({ currentLang }: { currentLang: Language }) {
       <button
         onClick={() => setOpen(!open)}
         aria-label="Switch language"
-        className="flex items-center gap-1 px-2 py-1 text-xs rounded border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text-muted)] hover:text-[var(--color-heading)] hover:border-[var(--color-accent)] transition-colors focus:outline-none"
+        className="inline-flex items-center justify-center gap-1.5 h-8 min-w-[62px] px-2 text-xs rounded-md border border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text-muted)] hover:text-[var(--color-heading)] hover:border-[var(--color-accent)] transition-colors focus:outline-none"
       >
         <Globe className="w-3.5 h-3.5" />
-        <span className="uppercase font-medium">{currentLang}</span>
+        <span className="uppercase font-medium leading-none">{currentLang}</span>
       </button>
 
       {open && (

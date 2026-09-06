@@ -24,7 +24,7 @@ export function getSiteConfig(lang: Language = "zh"): SiteConfig {
     return {
       title: "Kin's Blog",
       author: "Kin",
-      tagline: "Now or never .",
+      tagline: "Veni , Vidi, Vici.",
       url: "https://davingm.com",
       description: "纯 SSG 静态博客",
       bio: "Hi, 我是 Kin!",
@@ -38,31 +38,34 @@ export function getSiteConfig(lang: Language = "zh"): SiteConfig {
 }
 
 export function getAboutData(lang: Language = "zh"): AboutData {
-  const filePath = path.join(CONTENT_DIR, "www", lang, "about.yml");
+  const filePath = path.join(CONTENT_DIR, "www", lang, "about.md");
   if (fs.existsSync(filePath)) {
-    return load(fs.readFileSync(filePath, "utf8")) as AboutData;
+    const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+    return { ...data, content } as AboutData;
   }
-  const fallback = path.join(CONTENT_DIR, "www", "zh", "about.yml");
+  const fallback = path.join(CONTENT_DIR, "www", "zh", "about.md");
   if (fs.existsSync(fallback)) {
-    return load(fs.readFileSync(fallback, "utf8")) as AboutData;
+    const { data, content } = matter(fs.readFileSync(fallback, "utf8"));
+    return { ...data, content } as AboutData;
   }
   return {
     title: "About",
     publishedAt: "2026-08-27 21:59:19",
     updatedAt: "2026-08-27 22:49:18",
-    greeting: "Hi!",
-    sections: [],
+    content: "",
   };
 }
 
 export function getLinksData(lang: Language = "zh"): LinksData {
-  const filePath = path.join(CONTENT_DIR, "www", lang, "links.yml");
+  const filePath = path.join(CONTENT_DIR, "www", lang, "links.md");
   if (fs.existsSync(filePath)) {
-    return load(fs.readFileSync(filePath, "utf8")) as LinksData;
+    const { data, content } = matter(fs.readFileSync(filePath, "utf8"));
+    return { ...data, content } as LinksData;
   }
-  const fallback = path.join(CONTENT_DIR, "www", "zh", "links.yml");
+  const fallback = path.join(CONTENT_DIR, "www", "zh", "links.md");
   if (fs.existsSync(fallback)) {
-    return load(fs.readFileSync(fallback, "utf8")) as LinksData;
+    const { data, content } = matter(fs.readFileSync(fallback, "utf8"));
+    return { ...data, content } as LinksData;
   }
   return {
     title: "Links",
@@ -70,6 +73,7 @@ export function getLinksData(lang: Language = "zh"): LinksData {
     updatedAt: "2026-08-28 00:49:11",
     description: "",
     links: [],
+    content: "",
   };
 }
 

@@ -1,10 +1,10 @@
 title: "Kin's Blog"
-author: "davingm"
+author: "Kin"
 avatar: "/images/author.jpg"
-tagline: "Now or never"
+tagline: "Veni, Vidi, Vici."
 url: "https://davingm.com"
 description: "纯 SSG 静态博客，极简设计，专注内容与性能。"
-bio: "Hi，我是 Kin。这是我使用 Inkcairn 构建的博客，尽可能减少了 JavaScript 的使用，希望能专注于写一些有趣的内容。"
+bio: "你好，我是 Kin！这是我用 Next.js 搭建的博客，我尽量减少 JavaScript 的使用，让自己专注于写出更有趣的内容。"
 commit: "121c93e"
 generator: "made with nextjs v16.3.4"
 nav:
