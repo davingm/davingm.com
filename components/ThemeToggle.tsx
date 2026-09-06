@@ -29,6 +29,7 @@ export function ThemeToggle() {
       document.documentElement.classList.remove("dark");
     }
     window.dispatchEvent(new Event("storage"));
+    window.dispatchEvent(new CustomEvent("theme-change", { detail: nextTheme }));
   };
 
   return (
