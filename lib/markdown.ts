@@ -6,6 +6,23 @@ export interface HeadingItem {
   level: number;
 }
 
+function headingToId(rawText: string): string {
+  // Strip markdown inline tokens: bold, italic, code, links — same as renderer's plainText
+  const plain = rawText
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/__(.+?)__/g, "$1")
+    .replace(/_(.+?)_/g, "$1")
+    .replace(/`(.+?)`/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+  return plain
+    .toLowerCase()
+    .replace(/[^\w\u4e00-\u9fa5\s-]/g, "")
+    .replace(/\s+/g, "-");
+}
+
 export function extractHeadings(markdown: string): HeadingItem[] {
   const headings: HeadingItem[] = [];
   const lines = markdown.split("\n");
@@ -14,11 +31,10 @@ export function extractHeadings(markdown: string): HeadingItem[] {
     const match = line.match(/^(#{1,6})\s+(.+)$/);
     if (match) {
       const level = match[1].length;
-      const text = match[2].trim().replace(/[*_`[\]]/g, "");
-      const id = text
-        .toLowerCase()
-        .replace(/[^\w\u4e00-\u9fa5\s-]/g, "")
-        .replace(/\s+/g, "-");
+      const rawText = match[2].trim();
+      // Display text: strip markdown syntax only
+      const text = rawText.replace(/[*_`]/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").trim();
+      const id = headingToId(rawText);
       headings.push({ id, text, level });
     }
   }
@@ -31,13 +47,9 @@ export async function renderMarkdown(markdown: string): Promise<string> {
   const renderer = new marked.Renderer();
 
   renderer.heading = ({ tokens, depth }) => {
-    const text = tokens.map((t) => t.raw).join("");
-    const plainText = text.replace(/<[^>]+>/g, "").trim();
-    const id = plainText
-      .toLowerCase()
-      .replace(/[^\w\u4e00-\u9fa5\s-]/g, "")
-      .replace(/\s+/g, "-");
-    return `<h${depth} id="${id}" class="group relative flex items-center"><a href="#${id}" class="header-anchor" aria-hidden="true">#</a><span>${text}</span></h${depth}>`;
+    const raw = tokens.map((t) => t.raw).join("");
+    const id = headingToId(raw);
+    return `<h${depth} id="${id}" class="group relative flex items-center"><a href="#${id}" class="header-anchor" aria-hidden="true">#</a><span>${raw}</span></h${depth}>`;
   };
 
   renderer.code = ({ text, lang }) => {

@@ -66,16 +66,17 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.content);
 
   return (
-    <>
-      {/* TOC: benar-benar di luar flow artikel, posisi fixed di sisi kanan */}
-      {headings.length > 0 && (
-        <aside className="hidden xl:block fixed top-24 right-0 w-56 max-h-[calc(100vh-7rem)] overflow-y-auto pr-6 pl-4 border-l border-[var(--color-border)]">
-          <TableOfContents headings={headings} />
-        </aside>
-      )}
+    /*
+     * Layout: flex row — artikel (max-w-3xl, shrink-0) | TOC (w-52, shrink-0)
+     * - artikel TIDAK pernah menyempit karena shrink-0
+     * - TOC hidden di mobile, muncul di xl+ (layar ≥1280px)
+     * - flex justify-center memusatkan keseluruhan baris
+     */
+    <div className="w-full flex justify-center items-start gap-6 px-4 sm:px-6 lg:px-8">
 
-      {/* Artikel: sama persis max-w dengan header (max-w-3xl) */}
-      <article className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+      {/* ── Artikel ── */}
+      <article className="flex-1 min-w-0 max-w-3xl">
+
         {/* Post Header */}
         <header className="mb-10 pb-6 border-b border-[var(--color-border)]">
           <Link
@@ -121,7 +122,7 @@ export default async function BlogPostPage({
             )}
           </div>
 
-          {/* Top Featured Hero Image */}
+          {/* Hero Image */}
           {post.image && (
             <div className="mt-6 rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-code-bg)] shadow-xs">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -134,12 +135,21 @@ export default async function BlogPostPage({
           )}
         </header>
 
-        {/* Post Markdown Content */}
+        {/* Markdown Content */}
         <div
           className="prose text-sm max-w-none"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
-    </>
+
+      {/* ── TOC sidebar — muncul di lg+ (≥1024px) ── */}
+      {headings.length > 0 && (
+        <aside className="hidden lg:block w-44 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto border-l border-[var(--color-border)] pl-4 pt-1">
+          <TableOfContents headings={headings} />
+        </aside>
+      )}
+
+    </div>
   );
 }
+
