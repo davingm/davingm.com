@@ -1,36 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Next - Blog's
 
-## Getting Started
+Next - Blog's 是一款基于 Next.js 开发的博客模板，专为极致速度与极佳阅读体验而设计。该项目最大程度地减少了 JavaScript 的使用（超精简 JS），以确保页面实现瞬间加载，让用户完全专注于内容本身。
 
-First, run the development server:
+## 核心特性
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* 超精简 JavaScript (Ultra-Minimal JavaScript)： 极具攻击性（大幅度）的 JS 体积缩减，带来即时响应的交互体验并大幅节省流量。
+* 内容至上原则 (Content-First Approach)： 专为文章可读性优化的布局与排版设计，提供舒适的阅读体验。
+* 极致性能： 得益于静态渲染优化，拥有极佳的核心网页指标（Core Web Vitals：LCP、FID、CLS）评分。
+* SEO 友好： 采用语义化的 HTML 结构，助力提升搜索引擎排名。
