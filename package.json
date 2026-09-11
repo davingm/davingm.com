@@ -9,8 +9,17 @@
     "start": "serve out",
     "lint": "eslint ."
   },
+  "browserslist": [
+    "> 0.5%",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions",
+    "not dead",
+    "not IE 11",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.23",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "js-yaml": "^5.4.1",

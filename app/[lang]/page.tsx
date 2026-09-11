@@ -39,7 +39,7 @@ export default async function HomePage({
         </div>
 
         <div className="space-y-8">
-          {recentPosts.map((post) => (
+          {recentPosts.map((post, postIndex) => (
             <article key={post.slug} className="group">
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
                 <time className="text-xs font-mono text-[var(--color-text-muted)] shrink-0 w-24">
@@ -61,7 +61,12 @@ export default async function HomePage({
                       <img
                         src={post.image}
                         alt={post.title}
+                        width={478}
+                        height={269}
                         className="w-full h-auto object-cover max-h-44 group-hover:scale-[1.02] transition-transform duration-200"
+                        loading={postIndex === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        fetchPriority={postIndex === 0 ? "high" : "low"}
                       />
                     </div>
                   )}
