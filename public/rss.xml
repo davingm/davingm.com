@@ -5,7 +5,7 @@
     <link>https://davingm.com</link>
     <description><![CDATA[纯 SSG 静态博客，极简设计，专注内容与性能。]]></description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 06 Sep 2026 08:54:05 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 00:32:04 GMT</lastBuildDate>
     <atom:link href="https://davingm.com/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title><![CDATA[如何选择正确的 TLD 来提升企业信誉]]></title>
@@ -13,7 +13,7 @@
       <guid>https://davingm.com/zh/posts/cara-memilih-tld-yang-tepat</guid>
       <pubDate>Tue, 28 Apr 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[为您的企业选择合适的 TLD 指南]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[学习一门新语言总是很慢——直到我停止用错误的方式学习]]></title>
@@ -21,7 +21,7 @@
       <guid>https://davingm.com/zh/posts/tips-belajar-bahasa-baru</guid>
       <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[我曾学习一门语言数月之久，却感觉不到任何实质性的进步。问题不在于词汇或语法——而在于我使用的方法。这是最终真正对我有效的方式。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[在 Nuxt 4 中正确使用 GSAP：避免 SSR 问题与内存泄漏]]></title>
@@ -29,7 +29,7 @@
       <guid>https://davingm.com/zh/posts/gsap-best-practices-nuxt4</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[GSAP 非常强大，但在 Nuxt 4 中接入它会遇到一些不那么显而易见的陷阱。本文探讨了正确的集成方式，让动画流畅运行，并且不在背后留下任何隐患。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[别再让 Prettier 和 ESLint 一起做格式化了]]></title>
@@ -37,7 +37,7 @@
       <guid>https://davingm.com/zh/posts/stop-using-prettier-with-eslint</guid>
       <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[将 Prettier 和 ESLint 放在同一个工作流中是可行的，但结果往往比应有的样子更麻烦。这是我个人的经验，以及我最终为什么选择 ESLint Stylistic 和 Biome 来替代它们。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[为什么我学编程卡了好几个月——以及最终是什么解救了我]]></title>
@@ -45,7 +45,7 @@
       <guid>https://davingm.com/zh/posts/tips-belajar-coding-efektif</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[许多初学者学习数月之久，却感觉不到任何实质性的进步。这不是因为没有天赋——而是因为学习方法错了。这是我亲身经历后学到的东西。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[作为一名前端开发者，我每天使用的 15 个 VS Code 扩展]]></title>
@@ -53,7 +53,7 @@
       <guid>https://davingm.com/zh/posts/15-vscode-extensions-frontend</guid>
       <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[VS Code 的扩展生态非常庞大。在我尝试过的几十个扩展中，这 15 个真正改变了我的工作方式，而不仅仅是常见的推荐列表。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[远程工作两年，这些方法最终对我奏效了]]></title>
@@ -61,7 +61,7 @@
       <guid>https://davingm.com/zh/posts/tips-produktif-kerja-dari-rumah</guid>
       <pubDate>Sun, 08 Mar 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[远程工作的第一个月感觉棒极了。第二个月开始变得一团糟。这篇文章讲述的是在两年的尝试之后，我最终发现的东西。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[与 AI 协作参与开源：我坚守的四条原则]]></title>
@@ -69,7 +69,7 @@
       <guid>https://davingm.com/zh/posts/empat-prinsip-inti-kontribusi-dengan-ai</guid>
       <pubDate>Sat, 21 Feb 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[我非常喜欢参与开源项目。在这个过程中涉及 AI 之后，我慢慢有了四条一直在坚守的原则。这不是我强加给别人的规则——但如果你要向我维护的项目贡献代码，了解这些会有帮助。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[2025 年初：深入钻研 Vue，同时维护已有的 Laravel 项目]]></title>
@@ -77,7 +77,7 @@
       <guid>https://davingm.com/zh/posts/rangkuman-awal-2025</guid>
       <pubDate>Wed, 18 Feb 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[2025 年初，我同时进行着两项技术工作：从底层开始认真钻研 Vue.js，以及维护一个已运行多年的 Laravel 项目。这是那段时期的记录。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[从每月月光到能够存钱——这不是自律的问题，而是系统的问题]]></title>
@@ -85,7 +85,7 @@
       <guid>https://davingm.com/zh/posts/tips-hemat-uang-anak-muda</guid>
       <pubDate>Sat, 14 Feb 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[工作的头两年，我总是在月底前就把钱花光了。不是因为薪水少——而是因为没有一套为我运转的系统。这是最终改变了一切的东西。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[我的睡眠质量变差了——直到我意识到原因不是失眠]]></title>
@@ -93,7 +93,7 @@
       <guid>https://davingm.com/zh/posts/tips-tidur-lebih-baik</guid>
       <pubDate>Tue, 20 Jan 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[连续好几个月，我睡了足够的时间，但醒来仍然很累。追溯之后发现，原来是几个我认为没什么影响的小事造成的。这是在我逐一调整之后发生的变化。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[无形的导航：在我们决策背后运作的力量]]></title>
@@ -101,7 +101,7 @@
       <guid>https://davingm.com/zh/posts/memahami-kekuatan-perilaku-manusia</guid>
       <pubDate>Wed, 23 Apr 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[我们常常自认为是理性的决策者。但在表象之下，有远为复杂的机制在运作——而理解它，是这个时代最有用的事情之一。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
     <item>
       <title><![CDATA[Nuxt.js 改变了我的 Web 开发方式——而且速度之快远超我的预期]]></title>
@@ -109,7 +109,7 @@
       <guid>https://davingm.com/zh/posts/nuxtjs-luar-biasa</guid>
       <pubDate>Wed, 23 Apr 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[我曾经低估了 Vue.js。我也曾对 Nuxt 持怀疑态度。但两年之后，两者都成为了我的主要工具——这不是因为炒作，而是因为构建真正能运行的东西的真实体验。]]></description>
-      <author>davingm</author>
+      <author>Kin</author>
     </item>
   </channel>
 </rss>
