@@ -1,8 +1,20 @@
 import { SiteConfig } from "@/lib/types";
+import Image from "next/image";
 
 export function Footer({ site }: { site: SiteConfig }) {
   return (
-    <footer className="mt-20 pt-8 pb-12 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)] flex items-center justify-between flex-wrap gap-4 font-mono">
+    <footer className="relative mt-20 pt-8 pb-12 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)] flex items-center justify-between flex-wrap gap-4 font-mono">
+      <div className="pointer-events-none absolute inset-x-0 bottom-full translate-y-[2px]">
+        <Image
+          src="/anime-footer-new.png"
+          alt=""
+          width={2170}
+          height={725}
+          className="block h-auto w-full"
+          aria-hidden="true"
+        />
+      </div>
+
       <div>
         <span>{site.generator || "made with nextjs v16.3.4"}</span>
       </div>
