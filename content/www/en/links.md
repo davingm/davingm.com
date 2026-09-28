@@ -1,21 +1,29 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-09-06T21:52:09+08:00"
+updatedAt: "2026-09-22T19:36:57+08:00"
 description: "Links from friends sorted alphabetically by name."
 links:
   - name: "Nairha"
     desc: "Fragrant and pleasant"
     url: "https://nairha.nlfts.dev"
     avatar: "https://github.com/nairha.png"
+    stack: "angular"
   - name: "Radiedtya"
     desc: "Fragrant and pleasant"
     url: "https://www.radiedtya.web.id/"
     avatar: "https://github.com/radiedtya.png"
+    stack: "react"
   - name: "sidiktsq"
     desc: "Building brutal, functional, and beautiful web experiences"
     url: "https://sidiktsq.nlfts.dev"
     avatar: "https://github.com/sidiktsq.png"
+    stack: "nuxt"
+  - name: "Dika Blog"
+    desc: "Personal website for sharing stories and daily experiences"
+    url: "https://dikapratama.xyz"
+    avatar: "https://github.com/dikapratamaa.png"
+    stack: "nuxt"
 ---
 
 ## About This Site

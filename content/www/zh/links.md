@@ -1,21 +1,29 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-09-06T21:52:09+08:00"
+updatedAt: "2026-09-22T19:36:07+08:00"
 description: "按姓名字母顺序排列的友情链接。"
 links:
   - name: "Nairha"
     desc: "清香宜人"
     url: "https://nairha.nlfts.dev"
     avatar: "https://github.com/nairha.png"
+    stack: "angular"
   - name: "Radiedtya"
-    desc: "清香宜人"
+    desc: "Just a Rocky"
     url: "https://www.radiedtya.web.id/"
     avatar: "https://github.com/radiedtya.png"
+    stack: "react"
   - name: "sidiktsq"
     desc: "构建残酷、功能性且美观的 Web 体验"
     url: "https://sidiktsq.nlfts.dev"
     avatar: "https://github.com/sidiktsq.png"
+    stack: "nuxt"
+  - name: "Dika Blog"
+    desc: "个人网站，用于分享故事和日常体验"
+    url: "https://dikapratama.xyz"
+    avatar: "https://github.com/dikapratamaa.png"
+    stack: "nuxt"
 ---
 
 ## 关于本站

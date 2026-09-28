@@ -129,6 +129,19 @@ function handleFile(filePath, options) {
   processFile(filePath, options);
 }
 
+function safelyHandleFile(filePath, options) {
+  try {
+    handleFile(filePath, options);
+  } catch (error) {
+    const relativePath = path.relative(root, filePath);
+    const location = error.mark
+      ? `:${error.mark.line + 1}:${error.mark.column + 1}`
+      : "";
+    const message = error.reason || error.message || String(error);
+    console.error(`[content] ${relativePath}${location}: ${message}`);
+  }
+}
+
 const watcher = chokidar.watch(watchedPaths, {
   ignored: /(^|[\\/])\../,
   ignoreInitial: false,
@@ -136,8 +149,8 @@ const watcher = chokidar.watch(watchedPaths, {
 });
 
 watcher
-  .on("add", (filePath) => handleFile(filePath, { contentChanged: false, initialize: !ready }))
-  .on("change", (filePath) => handleFile(filePath, { contentChanged: true }))
+  .on("add", (filePath) => safelyHandleFile(filePath, { contentChanged: false, initialize: !ready }))
+  .on("change", (filePath) => safelyHandleFile(filePath, { contentChanged: true }))
   .on("unlink", (filePath) => signatures.delete(filePath))
   .on("ready", () => {
     ready = true;

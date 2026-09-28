@@ -6,7 +6,7 @@ url: "https://davingm.com"
 description: "Pure SSG static blog, minimal design, focused on content and performance."
 bio: "Hi, I'm Kin! This is the blog I built with Next.js, minimizing JavaScript usage as much as possible so I can focus on writing interesting content."
 commit: "121c93e"
-generator: "made with nextjs v16.3.4"
+generator: "CC BY-NC-SA 4.0"
 nav:
   - name: "Home"
     path: ""

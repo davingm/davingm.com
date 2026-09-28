@@ -1,21 +1,29 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-09-06T20:35:41+08:00"
+updatedAt: "2026-09-22T19:34:39+08:00"
 description: "Tautan teman diurutkan berdasarkan abjad nama."
 links:
   - name: "Nairha"
     desc: "Harum dan wangi"
     url: "https://nairha.nlfts.dev"
     avatar: "https://github.com/nairha.png"
+    stack: "angular"
   - name: "Radiedtya"
-    desc: "Harum dan wangi"
+    desc: "Just a Rocky"
     url: "https://www.radiedtya.web.id/"
     avatar: "https://github.com/radiedtya.png"
+    stack: "react"
   - name: "sidiktsq"
     desc: "Membangun pengalaman web yang brutal, fungsional, dan indah"
     url: "https://sidiktsq.nlfts.dev"
     avatar: "https://github.com/sidiktsq.png"
+    stack: "nuxt"
+  - name: "Dika Blog"
+    desc: "web pribadi untuk saling berbagi cerita dan pengalaman sehari-hari"
+    url: "https://dikapratama.xyz"
+    avatar: "https://github.com/dikapratamaa.png"
+    stack: "nuxt"
 ---
 
 ## Informasi Situs ini
