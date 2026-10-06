@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#182449"/>
+      <stop offset="0.58" stop-color="#a85b76"/>
+      <stop offset="1" stop-color="#f3b879"/>
+    </linearGradient>
+    <linearGradient id="island" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#7796a1"/>
+      <stop offset="1" stop-color="#263c58"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1190" cy="245" r="94" fill="#ffe4ad" opacity=".88"/>
+  <path d="M0 510 Q180 430 355 510 T710 495 T1070 510 T1430 475 T1760 505 V900 H0Z" fill="#d5a2a0" opacity=".3"/>
+  <path d="M225 560 Q800 380 1375 560 L1260 680 Q800 760 340 680Z" fill="url(#island)"/>
+  <path d="M375 555 Q800 462 1225 555 L1170 610 Q800 666 430 610Z" fill="#66856f"/>
+  <path d="M620 543 L655 432 L700 543 M760 518 L800 370 L840 518 M915 534 L955 420 L1000 534" fill="#243650" stroke="#243650" stroke-width="22"/>
+  <g fill="#ffe2a1">
+    <rect x="642" y="474" width="13" height="22" rx="4"/>
+    <rect x="788" y="424" width="16" height="26" rx="4"/>
+    <rect x="943" y="462" width="14" height="23" rx="4"/>
+  </g>
+  <path d="M710 680 C730 750 700 790 670 840 M890 680 C870 755 910 800 940 855" fill="none" stroke="#a6c3d5" stroke-width="6" opacity=".65"/>
+  <g fill="#fff2d8" opacity=".72">
+    <circle cx="220" cy="210" r="4"/><circle cx="410" cy="310" r="3"/><circle cx="720" cy="180" r="4"/>
+    <circle cx="970" cy="290" r="3"/><circle cx="1390" cy="150" r="4"/><circle cx="1480" cy="360" r="3"/>
+  </g>
+</svg>

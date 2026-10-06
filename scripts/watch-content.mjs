@@ -13,6 +13,7 @@ const contentRoot = path.join(root, "content");
 const watchedPaths = [
   path.join(contentRoot, "blog"),
   path.join(contentRoot, "project"),
+  path.join(contentRoot, "anime"),
   path.join(contentRoot, "www"),
 ];
 const signatures = new Map();
@@ -22,7 +23,11 @@ function isManagedFile(filePath) {
   const relativePath = path.relative(contentRoot, filePath).replaceAll("\\", "/");
   const extension = path.extname(filePath).toLowerCase();
 
-  if (relativePath.startsWith("blog/") || relativePath.startsWith("project/")) {
+  if (
+    relativePath.startsWith("blog/") ||
+    relativePath.startsWith("project/") ||
+    relativePath.startsWith("anime/")
+  ) {
     return extension === ".md" || extension === ".mdx";
   }
 
@@ -154,6 +159,6 @@ watcher
   .on("unlink", (filePath) => signatures.delete(filePath))
   .on("ready", () => {
     ready = true;
-    console.log("[content] watching blog, project, about, links and projects metadata");
+    console.log("[content] watching blog, project, anime, about, links and projects metadata");
   })
   .on("error", (error) => console.error("[content] watcher error", error));

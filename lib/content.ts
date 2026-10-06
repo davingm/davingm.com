@@ -5,6 +5,7 @@ import { load } from "js-yaml";
 import {
   Language,
   SiteConfig,
+  AnimeEntry,
   BlogPost,
   ProjectPost,
   LinksData,
@@ -212,4 +213,63 @@ export function getGroupedArchivePosts(lang: Language = "zh"): Record<string, Bl
   });
 
   return grouped;
+}
+
+export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
+  const dir = path.join(CONTENT_DIR, "anime", lang);
+  if (!fs.existsSync(dir)) return [];
+
+  const files = fs.readdirSync(dir).filter((file) => file.endsWith(".mdx"));
+  const entries = files.map((file) => {
+    const filePath = path.join(dir, file);
+    const { data } = matter(fs.readFileSync(filePath, "utf8"));
+    const slug = file.replace(/\.mdx$/, "");
+
+    if (!Number.isInteger(data.year) || data.year < 1900 || data.year > 9999) {
+      throw new Error(`Invalid or missing year in ${filePath}`);
+    }
+    if (typeof data.title !== "string" || !data.title.trim()) {
+      throw new Error(`Invalid or missing title in ${filePath}`);
+    }
+    if (typeof data.description !== "string" || !data.description.trim()) {
+      throw new Error(`Invalid or missing description in ${filePath}`);
+    }
+    if (!Array.isArray(data.images) || data.images.length < 1 || data.images.length > 5 ||
+      data.images.some((image: unknown) => typeof image !== "string" || !image.trim())) {
+      throw new Error(`Anime images must contain between 1 and 5 paths in ${filePath}`);
+    }
+    if (!Number.isInteger(data.rating) || data.rating < 0 || data.rating > 10) {
+      throw new Error(`Anime rating must be an integer from 0 to 10 in ${filePath}`);
+    }
+    if (!Number.isInteger(data.episodeDurationMinutes) ||
+      data.episodeDurationMinutes < 20 || data.episodeDurationMinutes > 40) {
+      throw new Error(`Episode duration must be between 20 and 40 minutes in ${filePath}`);
+    }
+    if (!Array.isArray(data.categories) ||
+      data.categories.some((category: unknown) => typeof category !== "string" || !category.trim())) {
+      throw new Error(`Anime categories must be an array of non-empty strings in ${filePath}`);
+    }
+    if (data.pinned !== undefined && typeof data.pinned !== "boolean") {
+      throw new Error(`Anime pinned must be true or false in ${filePath}`);
+    }
+
+    return {
+      slug,
+      year: data.year as number,
+      title: data.title.trim() as string,
+      description: data.description.trim() as string,
+      images: data.images as string[],
+      rating: data.rating as number,
+      episodeDurationMinutes: data.episodeDurationMinutes as number,
+      categories: data.categories as string[],
+      pinned: data.pinned === true,
+    };
+  });
+
+  return entries.sort(
+    (a, b) =>
+      Number(b.pinned) - Number(a.pinned) ||
+      b.year - a.year ||
+      a.title.localeCompare(b.title),
+  );
 }
