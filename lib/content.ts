@@ -228,6 +228,18 @@ export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
     if (!Number.isInteger(data.year) || data.year < 1900 || data.year > 9999) {
       throw new Error(`Invalid or missing year in ${filePath}`);
     }
+    if (typeof data.watchedAt !== "string" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(data.watchedAt)) {
+      throw new Error(`Anime watchedAt must use YYYY-MM-DD format in ${filePath}`);
+    }
+    const watchedAtDate = new Date(`${data.watchedAt}T00:00:00Z`);
+    if (
+      Number.isNaN(watchedAtDate.getTime()) ||
+      watchedAtDate.toISOString().slice(0, 10) !== data.watchedAt ||
+      Number(data.watchedAt.slice(0, 4)) !== data.year
+    ) {
+      throw new Error(`Anime watchedAt must be a valid date matching year in ${filePath}`);
+    }
     if (typeof data.title !== "string" || !data.title.trim()) {
       throw new Error(`Invalid or missing title in ${filePath}`);
     }
@@ -256,6 +268,7 @@ export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
     return {
       slug,
       year: data.year as number,
+      watchedAt: data.watchedAt as string,
       title: data.title.trim() as string,
       description: data.description.trim() as string,
       images: data.images as string[],
@@ -270,6 +283,7 @@ export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
     (a, b) =>
       Number(b.pinned) - Number(a.pinned) ||
       b.year - a.year ||
+      b.watchedAt.localeCompare(a.watchedAt) ||
       a.title.localeCompare(b.title),
   );
 }

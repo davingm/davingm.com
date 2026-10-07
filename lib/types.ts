@@ -63,6 +63,7 @@ export interface ProjectPost {
 export interface AnimeEntry {
   slug: string;
   year: number;
+  watchedAt: string;
   title: string;
   description: string;
   images: string[];

@@ -106,13 +106,29 @@ function AnimeArchive({
     );
   }
 
+  const visibleEntries = entries.slice(0, visibleCount);
+  const years = Array.from(new Set(entries.map((entry) => entry.year)));
+
   return (
-    <>
-      <div className="space-y-10">
-        {entries.slice(0, visibleCount).map((entry) => (
-          <AnimeEntryRow key={entry.slug} entry={entry} text={text} />
-        ))}
-      </div>
+    <div className="space-y-10">
+      {years.map((year) => {
+        const yearEntries = visibleEntries.filter((entry) => entry.year === year);
+
+        if (yearEntries.length === 0) return null;
+
+        return (
+          <section key={year} className="space-y-4">
+            <h3 className="text-sm font-bold font-mono text-[var(--color-heading)]">
+              {year}
+            </h3>
+            <div className="space-y-8 border-l border-[var(--color-border)] pl-3 sm:pl-5">
+              {yearEntries.map((entry) => (
+                <AnimeEntryRow key={entry.slug} entry={entry} text={text} />
+              ))}
+            </div>
+          </section>
+        );
+      })}
       {visibleCount < entries.length && (
         <div className="mt-8 flex justify-center">
           <button
@@ -130,7 +146,7 @@ function AnimeArchive({
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -153,8 +169,11 @@ function AnimeEntryRow({
 
   return (
     <article className="group flex flex-col gap-2 sm:flex-row sm:gap-6">
-      <time className="w-24 shrink-0 pt-1 text-xs font-mono text-[var(--color-text-muted)]">
-        {entry.year}
+      <time
+        dateTime={entry.watchedAt}
+        className="w-24 shrink-0 pt-1 text-xs font-mono text-[var(--color-text-muted)]"
+      >
+        {entry.watchedAt}
       </time>
       <div className="min-w-0 flex-1 space-y-2">
         <h3 className="text-base font-semibold text-[var(--color-heading)]">
