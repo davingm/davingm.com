@@ -6,6 +6,7 @@
     "dev": "concurrently -k \"node scripts/watch-content.mjs\" \"next dev\"",
     "prebuild": "node scripts/generate-feeds.mjs",
     "build": "next build",
+    "postbuild": "node scripts/generate-service-worker.mjs",
     "start": "serve out",
     "lint": "eslint ."
   },

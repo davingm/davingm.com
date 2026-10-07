@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Language } from "@/lib/types";
 import { SearchItem } from "@/components/SearchModal";
 import { TabTitle } from "@/components/TabTitle";
+import { OfflinePresentation } from "@/components/OfflinePresentation";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -68,10 +69,12 @@ export default async function LanguageLayout({
       <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
         <Header lang={lang} site={site} searchItems={searchItems} />
       </div>
-      <main className="flex-1 py-4 w-full">{children}</main>
-      <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
-        <Footer site={site} />
-      </div>
+      <OfflinePresentation>
+        <main className="flex-1 py-4 w-full">{children}</main>
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-8">
+          <Footer site={site} />
+        </div>
+      </OfflinePresentation>
     </div>
   );
 }

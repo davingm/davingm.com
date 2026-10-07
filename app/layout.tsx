@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { MarkdownCodeCopy } from "@/components/MarkdownCodeCopy";
+import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
 
 // Minimal theme init — runs before paint to prevent flash
 // Intentionally minified: no whitespace, no comments in output HTML
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}`;
+const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}document.documentElement.classList.toggle('is-offline',!navigator.onLine)}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -103,6 +104,7 @@ export default function RootLayout({
       >
         {children}
         <MarkdownCodeCopy />
+        <ServiceWorkerRegistration />
         {/* Google Analytics — deferred, off critical path */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8299K8G21E"

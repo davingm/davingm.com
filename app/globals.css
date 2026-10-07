@@ -47,6 +47,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.is-offline .offline-online-content {
+  display: none;
+}
+
+.offline-image {
+  display: none;
+}
+
+html.is-offline .offline-image {
+  display: flex;
+  flex: 1;
+  min-height: 45vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+}
+
+.offline-image img {
+  display: block;
+  width: min(100%, 28rem);
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

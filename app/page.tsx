@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SearchItem } from "@/components/SearchModal";
 import Link from "next/link";
+import { OfflinePresentation } from "@/components/OfflinePresentation";
 
 export default function RootHomePage() {
   const lang = "zh";
@@ -39,6 +40,7 @@ export default function RootHomePage() {
     <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 flex-1 flex flex-col">
       <Header lang={lang} site={site} currentPath="/" searchItems={searchItems} />
 
+      <OfflinePresentation>
       <main className="flex-1 py-4">
         {/* Intro bio */}
         <section className="mb-12 text-sm leading-relaxed text-[var(--color-text)]">
@@ -120,6 +122,7 @@ export default function RootHomePage() {
       </main>
 
       <Footer site={site} />
+      </OfflinePresentation>
     </div>
   );
 }
