@@ -233,12 +233,11 @@ export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
       throw new Error(`Anime watchedAt must use YYYY-MM-DD format in ${filePath}`);
     }
     const watchedAtDate = new Date(`${data.watchedAt}T00:00:00Z`);
-    if (
-      Number.isNaN(watchedAtDate.getTime()) ||
-      watchedAtDate.toISOString().slice(0, 10) !== data.watchedAt ||
-      Number(data.watchedAt.slice(0, 4)) !== data.year
-    ) {
-      throw new Error(`Anime watchedAt must be a valid date matching year in ${filePath}`);
+    if (Number.isNaN(watchedAtDate.getTime()) ||
+      watchedAtDate.toISOString().slice(0, 10) !== data.watchedAt) {
+      throw new Error(
+        `Anime watchedAt must be a real calendar date in YYYY-MM-DD format (received "${data.watchedAt}") in ${filePath}`,
+      );
     }
     if (typeof data.title !== "string" || !data.title.trim()) {
       throw new Error(`Invalid or missing title in ${filePath}`);
@@ -282,8 +281,8 @@ export function getAllAnimeEntries(lang: Language = "zh"): AnimeEntry[] {
   return entries.sort(
     (a, b) =>
       Number(b.pinned) - Number(a.pinned) ||
-      b.year - a.year ||
       b.watchedAt.localeCompare(a.watchedAt) ||
+      b.year - a.year ||
       a.title.localeCompare(b.title),
   );
 }

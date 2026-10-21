@@ -1,7 +1,7 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-09-22T19:36:57+08:00"
+updatedAt: "2026-10-21T14:43:53+08:00"
 description: "Links from friends sorted alphabetically by name."
 links:
   - name: "Nairha"
@@ -24,6 +24,11 @@ links:
     url: "https://dikapratama.xyz"
     avatar: "https://github.com/dikapratamaa.png"
     stack: "nuxt"
+  - name: "Tokita kun"
+    desc: "An experimental site with an interface, transforming ideas into useful products  ."
+    url: "https://dikapratama.xyz"
+    avatar: "https://github.com/tokitakun.png"
+    stack: "nextdotjs"
 ---
 
 ## About This Site

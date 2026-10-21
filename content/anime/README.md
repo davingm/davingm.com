@@ -1,6 +1,6 @@
 ---
 publishedAt: "2026-10-06T21:38:27+08:00"
-updatedAt: "2026-10-06T21:38:27+08:00"
+updatedAt: "2026-10-07T18:20:28+08:00"
 ---
 
 # Anime archive entries
@@ -29,11 +29,11 @@ categories:
 ---
 ```
 
-`watchedAt` is the viewing date in `YYYY-MM-DD` format, and its year must match
-`year`. It is displayed beside the anime title and used to order entries within
-a year. `rating` is an integer from 0 to 10 and is displayed as five gold stars
-(one star per two points, including half-stars). `episodeDurationMinutes` must
-be from 20 to 40.
+`year` is the archive category used to group entries. `watchedAt` is the viewing
+date in `YYYY-MM-DD` format. It is displayed beside the anime title and entries
+are ordered newest-first by this date. `rating` is an integer from 0 to 10 and
+is displayed as five gold stars (one star per two points, including half-stars).
+`episodeDurationMinutes` must be from 20 to 40.
 Set `pinned: true` to keep an anime above all unpinned entries. Omit the field
 or use `false` for a regular entry. Pinned entries have no special visual
 marker. The archive initially shows 20 anime and the round down-arrow button

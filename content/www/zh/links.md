@@ -24,6 +24,11 @@ links:
     url: "https://dikapratama.xyz"
     avatar: "https://github.com/dikapratamaa.png"
     stack: "nuxt"
+  - name: "Tokita kun"
+    desc: "具有交互界面的实验网站，并将想法转化为有用的产品."
+    url: "https://dikapratama.xyz"
+    avatar: "https://github.com/tokitakun.png"
+    stack: "nextdotjs"
 ---
 
 ## 关于本站

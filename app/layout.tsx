@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { MarkdownCodeCopy } from "@/components/MarkdownCodeCopy";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
+import { ThemeInit } from "@/components/ThemeInit";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -80,10 +81,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Minimal theme init — runs before paint to prevent flash
-// Intentionally minified: no whitespace, no comments in output HTML
-const themeScript = `try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}document.documentElement.classList.toggle('is-offline',!navigator.onLine)}catch(e){}`;
-
 export default function RootLayout({
   children,
 }: {
@@ -96,12 +93,11 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
         <link rel="manifest" href="/images/site.webmanifest" />
-        {/* Theme init: must be blocking to prevent dark/light flash */}
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col font-sans transition-colors duration-150`}
       >
+        <ThemeInit />
         {children}
         <MarkdownCodeCopy />
         <ServiceWorkerRegistration />
