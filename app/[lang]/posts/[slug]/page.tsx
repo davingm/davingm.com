@@ -32,13 +32,25 @@ export async function generateMetadata({
 
   if (!post) return { title: "Post Not Found" };
 
+  const description = post.summary || post.subtitle || site.description;
+  const canonicalUrl = new URL(`/${lang}/posts/${post.slug}`, site.url).toString();
+  const image = post.image || "/images/og/ogimage-new.png";
+  const locale = lang === "id" ? "id_ID" : lang === "zh" ? "zh_CN" : "en_US";
+
   return {
     title: post.title,
-    description: post.summary || post.subtitle || site.description,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: post.title,
-      description: post.summary || post.subtitle || site.description,
+      description,
       type: "article",
+      url: canonicalUrl,
+      siteName: site.title,
+      locale,
+      images: [image],
       publishedTime: post.publishedAt,
       authors: [site.author],
       tags: post.tags,
@@ -46,7 +58,8 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.summary || post.subtitle || site.description,
+      description,
+      images: [image],
     },
   };
 }
@@ -63,11 +76,41 @@ export default async function BlogPostPage({
     notFound();
   }
 
+  const site = getSiteConfig(lang);
   const html = await renderMarkdown(post.content);
   const headings = extractHeadings(post.content);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary || post.subtitle || site.description,
+    datePublished: post.publishedAt,
+    author: {
+      "@type": "Person",
+      name: site.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.title,
+    },
+    mainEntityOfPage: new URL(
+      `/${lang}/posts/${post.slug}`,
+      site.url,
+    ).toString(),
+    image: new URL(
+      post.image || "/images/og/ogimage-new.png",
+      site.url,
+    ).toString(),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       {/*
        * TOC: fixed, di luar flow dokumen, tepat di kanan artikel.
        * left = 50vw + 24rem (setengah max-w-3xl) + 1.5rem (gap)

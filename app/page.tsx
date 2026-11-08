@@ -4,6 +4,13 @@ import { Footer } from "@/components/Footer";
 import { SearchItem } from "@/components/SearchModal";
 import Link from "next/link";
 import { OfflinePresentation } from "@/components/OfflinePresentation";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function RootHomePage() {
   const lang = "zh";

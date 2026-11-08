@@ -49,14 +49,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/images/site.webmanifest",
-  alternates: {
-    canonical: "/",
-    languages: {
-      "zh-CN": "/zh",
-      "en-US": "/en",
-      "id-ID": "/id",
-    },
-  },
   openGraph: {
     type: "website",
     locale: "zh_CN",

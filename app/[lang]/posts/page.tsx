@@ -17,6 +17,9 @@ export async function generateMetadata({
   return {
     title: lang === "zh" ? "文章" : lang === "id" ? "Artikel" : "Posts",
     description: "All published blog posts and articles.",
+    alternates: {
+      canonical: `/${lang}/posts`,
+    },
   };
 }
 

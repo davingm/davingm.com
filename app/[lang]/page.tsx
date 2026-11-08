@@ -2,9 +2,23 @@ import { getSiteConfig, getAllBlogPosts } from "@/lib/content";
 import { Language } from "@/lib/types";
 import { PageContainer } from "@/components/PageContainer";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return [{ lang: "zh" }, { lang: "en" }, { lang: "id" }];
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return {
+    alternates: {
+      canonical: `/${lang}`,
+    },
+  };
 }
 
 export default async function HomePage({
