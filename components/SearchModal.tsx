@@ -23,7 +23,7 @@ export function AlgoliaLogo() {
       <span className="text-[11px]">Search by</span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/algolia.png"
+        src="/algolia.webp"
         alt="Algolia"
         width={55}
         height={16}

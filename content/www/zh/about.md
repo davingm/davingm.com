@@ -1,7 +1,7 @@
 ---
 title: "About"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-11-12T01:27:34+08:00"
+updatedAt: "2026-11-12T11:52:34+08:00"
 comments:
   enabled: true
   total: 2

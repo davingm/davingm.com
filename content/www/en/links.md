@@ -1,7 +1,7 @@
 ---
 title: "Links"
 publishedAt: "2026-08-27 21:59:19"
-updatedAt: "2026-10-21T14:43:53+08:00"
+updatedAt: "2026-11-12T12:06:48+08:00"
 description: "Links from friends sorted alphabetically by name."
 links:
   - name: "Nairha"
@@ -56,7 +56,7 @@ interface Link {
 
 ## Requirements
 
-- The site is run by an individual, contains safe and legal content, and complies with the laws in Mainland China and the Republic of Indonesia.
+- The site is managed on an individual basis, features safe and legal content, and complies with the laws in force within the territory of Mainland China and the Republic of Indonesia.
 - The site has its own domain name and uses HTTPS.
 - The site has been running for at least six months, has more than five original articles, and is actively maintained.
 - The site provides a dedicated page for friend links.
