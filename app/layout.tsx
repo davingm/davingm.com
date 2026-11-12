@@ -40,12 +40,12 @@ export const metadata: Metadata = {
   publisher: "Kin",
   icons: {
     icon: [
-      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-16x16.webp", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.webp", sizes: "32x32", type: "image/png" },
       { url: "/favicon.ico" },
     ],
     apple: [
-      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/apple-touch-icon.webp", sizes: "180x180", type: "image/png" },
     ],
   },
   manifest: "/images/site.webmanifest",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Kin's Blog",
     images: [
       {
-        url: "/images/og/ogimage-new.png",
+        url: "https://cdn.davingm.com/og/ogimage-new.webp",
         width: 1200,
         height: 630,
         alt: "Kin's Blog",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kin's Blog",
     description: "纯 SSG 静态博客，极简设计，专注内容与性能。",
-    images: ["/images/og/ogimage-new.png"],
+    images: ["https://cdn.davingm.com/og/ogimage-new.webp"],
   },
 };
 
@@ -81,9 +81,9 @@ export default function RootLayout({
   return (
     <html lang="zh" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.webp" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.webp" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.webp" />
         <link rel="manifest" href="/images/site.webmanifest" />
       </head>
       <body

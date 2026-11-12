@@ -197,7 +197,7 @@ html.dark .code-block-content .shiki span {
   opacity: 1;
 }
 
-/* Callout Note box like in about.png */
+/* Callout Note box like in about.webp */
 .callout-note {
   border-left: 3px solid #3B82F6;
   background-color: rgba(59, 130, 246, 0.08);

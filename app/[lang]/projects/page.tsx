@@ -43,7 +43,7 @@ export default async function ProjectsPage({
         </div>
       </header>
 
-      {/* Featured / Roles list (as seen in image.png) */}
+      {/* Featured / Roles list (as seen in image.webp) */}
       {data.featured.length > 0 && (
         <section className="space-y-2 text-sm text-[var(--color-text)]">
           <ul className="list-disc list-inside space-y-1.5">

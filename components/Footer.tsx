@@ -6,7 +6,7 @@ export function Footer({ site }: { site: SiteConfig }) {
     <footer className="relative mt-20 pt-8 pb-12 border-t border-[var(--color-border)] text-xs text-[var(--color-text-muted)] flex items-center justify-between flex-wrap gap-4 font-mono">
       <div className="pointer-events-none absolute inset-x-0 bottom-full translate-y-[2px]">
         <Image
-          src="/anime-footer-new.png"
+          src="https://cdn.davingm.com/anime-footer-new.webp"
           alt=""
           width={2170}
           height={725}

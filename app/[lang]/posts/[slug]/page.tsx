@@ -34,7 +34,7 @@ export async function generateMetadata({
 
   const description = post.summary || post.subtitle || site.description;
   const canonicalUrl = new URL(`/${lang}/posts/${post.slug}`, site.url).toString();
-  const image = post.image || "/images/og/ogimage-new.png";
+  const image = post.image || "https://cdn.davingm.com/og/ogimage-new.webp";
   const locale = lang === "id" ? "id_ID" : lang === "zh" ? "zh_CN" : "en_US";
 
   return {
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
       site.url,
     ).toString(),
     image: new URL(
-      post.image || "/images/og/ogimage-new.png",
+      post.image || "https://cdn.davingm.com/og/ogimage-new.webp",
       site.url,
     ).toString(),
   };
